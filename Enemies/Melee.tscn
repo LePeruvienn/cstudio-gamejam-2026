@@ -18,6 +18,8 @@ bg_color = Color(1, 0, 0.039215688, 0.6745098)
 [sub_resource type="ViewportTexture" id="ViewportTexture_tt7e2"]
 viewport_path = NodePath("SubViewport")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0kn8i"]
+
 [node name="Melee" type="CharacterBody3D" unique_id=1833152759]
 script = ExtResource("1_0kn8i")
 
@@ -51,3 +53,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2244587, 0)
 billboard = 1
 transparent = false
 texture = SubResource("ViewportTexture_tt7e2")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1915252520]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1652756479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0842552, -0.3840588)
+shape = SubResource("BoxShape3D_0kn8i")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1957966675]
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

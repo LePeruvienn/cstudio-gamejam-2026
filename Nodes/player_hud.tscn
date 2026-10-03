@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bkvoubks8y664"]
+
+[ext_resource type="Script" uid="uid://mx8hr4lqwgfs" path="res://Scripts/player_hud.gd" id="1_mdn4p"]
+
+[node name="PlayerHUD" type="Control" unique_id=1098777037]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mdn4p")
+metadata/_edit_use_anchors_ = true
+
+[node name="LifeBar" type="ProgressBar" parent="." unique_id=589905765]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = -56.0
+offset_right = -30.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 50.0
+
+[node name="ReviveAmount" type="Label" parent="." unique_id=1653689096]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 25.0
+offset_right = 337.0
+offset_bottom = 54.0
+text = "Nombre de réincarnation : "
+
+[node name="EnemyKilled" type="Label" parent="." unique_id=1012621658]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 55.0
+offset_right = 335.0
+offset_bottom = 84.0
+text = "Nombre d'enemies tués :"
+
+[node name="DeathCondition" type="Label" parent="." unique_id=935339518]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 1.0
+offset_top = 30.0
+offset_right = 133.0
+offset_bottom = 53.0
+grow_horizontal = 2
+text = "Se faire tuer par un ...."
+horizontal_alignment = 1

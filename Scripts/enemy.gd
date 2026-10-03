@@ -44,7 +44,6 @@ func move_towards_player(delta: float) -> void:
 func take_damage(amount: int) -> void:
 	health -= amount
 	update_progress_bar()
-	print("losee damage")
 	if health <= 0:
 		health = 0
 		die()

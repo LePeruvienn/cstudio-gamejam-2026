@@ -1,9 +1,12 @@
 extends CharacterBody3D
 
+class_name Player
+
 @onready var projectile_origin: Marker3D = $Marker3D
 @onready var melee_area: Area3D = $Area3D
 
 @export_category("Statistics")
+@export var max_health: int = 100
 @export var speed: float = 5.0
 @export var rotation_speed: float = 5.0
 @export var damage: int = 10
@@ -11,20 +14,30 @@ extends CharacterBody3D
 @export_category("Attacks")
 @export var projectile_scene: PackedScene
 
+var health: int = max_health
+var is_dead: bool = false
+
 var mouse_world_position: Vector3 = Vector3.ZERO
 
 func _physics_process(delta: float) -> void:
 	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction: Vector3 =  Vector3(input_dir.x, 0, input_dir.y).normalized()
-	
 	update_mouse_world_position()
-	
 	handle_movement(direction)
 	handle_rotation(delta)
 	move_and_slide()
-	
 	handle_melee_attack()
 	handle_projectiles()
+
+func take_damage(damage_amount: int) -> void:
+	health -= damage_amount
+	if health <= 0:
+		health = 0
+		is_dead = true
+		die()
+		
+func die() -> void:
+	print("I DIEED")
 
 func handle_movement(direction: Vector3) -> void:
 	if direction:

@@ -1,5 +1,5 @@
-class_name MageEnemy
 extends Enemy
+class_name MageEnemy
 
 @onready var projectile_origin: Marker3D = $Marker3D
 @onready var attack_timer: Timer = $AttackTimer
