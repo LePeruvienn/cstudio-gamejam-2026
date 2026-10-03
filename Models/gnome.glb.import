@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dk5spd2l0sgjp"
-path="res://.godot/imported/dino.glb-b21625718f0adc74bf004cd15397664c.scn"
+uid="uid://cmpg70qaro2rd"
+path="res://.godot/imported/gnome.glb-24da35d15e703465f13f532e250a48a4.scn"
 
 [deps]
 
-source_file="res://Models/dino.glb"
-dest_files=["res://.godot/imported/dino.glb-b21625718f0adc74bf004cd15397664c.scn"]
+source_file="res://Models/gnome.glb"
+dest_files=["res://.godot/imported/gnome.glb-24da35d15e703465f13f532e250a48a4.scn"]
 
 [params]
 

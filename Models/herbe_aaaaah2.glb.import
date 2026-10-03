@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://chpew8xaut2tr"
-path="res://.godot/imported/dino.fbx-1aa2a0880313e1102b4453ac5ab8e61e.scn"
+uid="uid://dddslfa0435ox"
+path="res://.godot/imported/herbe_aaaaah2.glb-a88845efdee56a1940637246ec16ec92.scn"
 
 [deps]
 
-source_file="res://Models/dino.fbx"
-dest_files=["res://.godot/imported/dino.fbx-1aa2a0880313e1102b4453ac5ab8e61e.scn"]
+source_file="res://Models/herbe_aaaaah2.glb"
+dest_files=["res://.godot/imported/herbe_aaaaah2.glb-a88845efdee56a1940637246ec16ec92.scn"]
 
 [params]
 
@@ -32,7 +32,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -40,7 +40,6 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-fbx/naming_version=2
+gltf/naming_version=2
+gltf/embedded_image_handling=1
+gltf/texture_map_mode=1

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dk5spd2l0sgjp"
-path="res://.godot/imported/dino.glb-b21625718f0adc74bf004cd15397664c.scn"
+uid="uid://ueoax2g8pr1v"
+path="res://.godot/imported/herbe_aaaaah1.glb-a95891634c05d4007de9e6fb836ba456.scn"
 
 [deps]
 
-source_file="res://Models/dino.glb"
-dest_files=["res://.godot/imported/dino.glb-b21625718f0adc74bf004cd15397664c.scn"]
+source_file="res://Models/herbe_aaaaah1.glb"
+dest_files=["res://.godot/imported/herbe_aaaaah1.glb-a95891634c05d4007de9e6fb836ba456.scn"]
 
 [params]
 
