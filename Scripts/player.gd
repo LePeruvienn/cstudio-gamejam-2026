@@ -1,8 +1,8 @@
 extends CharacterBody3D
-
 class_name Player
 
-@onready var projectile_origin: Marker3D = $Marker3D
+@onready var grenade_origin: Marker3D = $GrenadeOrigin
+@onready var bullet_origin: Marker3D = $BulletOrigin
 @onready var melee_area: Area3D = $Area3D
 
 @export_category("Statistics")
@@ -12,7 +12,8 @@ class_name Player
 @export var damage: int = 10
 
 @export_category("Attacks")
-@export var projectile_scene: PackedScene
+@export var grenade_scene: PackedScene
+@export var bullet_scene: PackedScene
 
 var health: int = max_health
 var is_dead: bool = false
@@ -27,7 +28,8 @@ func _physics_process(delta: float) -> void:
 	handle_rotation(delta)
 	move_and_slide()
 	handle_melee_attack()
-	handle_projectiles()
+	handle_grenade()
+	handle_bullet()
 
 func take_damage(damage_amount: int) -> void:
 	health -= damage_amount
@@ -66,14 +68,21 @@ func handle_rotation(delta: float) -> void:
 	var target_angle: float = atan2(-direction.x, -direction.z)
 	rotation.y = lerp_angle(rotation.y, target_angle, rotation_speed * delta)
 	
-func handle_projectiles() -> void:
+func handle_grenade() -> void:
+	if not Input.is_action_just_pressed("throw_grenade"):
+		return
+	var grenade: Node3D = grenade_scene.instantiate()
+	get_tree().root.add_child(grenade)
+	grenade.position = bullet_origin.global_position
+	grenade.rotation = rotation
+	grenade.throw()
+	
+func handle_bullet() -> void:
 	if not Input.is_action_just_pressed("range_attack"):
 		return
-	var projectile: Node3D = projectile_scene.instantiate()
-	get_tree().root.add_child(projectile)
-	projectile.position = projectile_origin.global_position
-	projectile.rotation = rotation
-	projectile.launch()
+	var bullet: Bullet = bullet_scene.instantiate()
+	get_tree().root.add_child(bullet)
+	bullet.global_transform = bullet_origin.global_transform
 	
 func handle_melee_attack() -> void:
 	if not Input.is_action_just_pressed("melee_attack"):

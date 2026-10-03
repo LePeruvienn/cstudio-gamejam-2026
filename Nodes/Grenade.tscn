@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c462wxp4854f5"]
+
+[ext_resource type="Script" uid="uid://ctebq40b1u2d3" path="res://Scripts/grenade.gd" id="1_qnq6o"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rsrsk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7iwr8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dunbd"]
+radius = 2.0
+
+[node name="Grenade" type="RigidBody3D" unique_id=413439834]
+script = ExtResource("1_qnq6o")
+damage = 30
+impulse_force = 5.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=319727303]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_rsrsk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=600845577]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_7iwr8")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1549666755]
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1155319872]
+shape = SubResource("SphereShape3D_dunbd")
+
+[node name="ExplosionTimer" type="Timer" parent="." unique_id=645097736]
+wait_time = 5.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="ExplosionTimer" to="." method="_on_explosion_timer_timeout"]

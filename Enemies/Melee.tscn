@@ -21,6 +21,7 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="BoxShape3D" id="BoxShape3D_0kn8i"]
 
 [node name="Melee" type="CharacterBody3D" unique_id=1833152759]
+collision_layer = 4
 script = ExtResource("1_0kn8i")
 
 [node name="Body" type="MeshInstance3D" parent="." unique_id=1617926624]

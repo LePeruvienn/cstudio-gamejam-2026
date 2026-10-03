@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cspapb50px2lj"]
 
 [ext_resource type="Script" uid="uid://ceisvagkmoi75" path="res://Scripts/player.gd" id="1_xhfnw"]
+[ext_resource type="PackedScene" uid="uid://c462wxp4854f5" path="res://Nodes/Grenade.tscn" id="2_bkgf5"]
+[ext_resource type="PackedScene" uid="uid://co2l7ep7vfmjg" path="res://Nodes/Bullet.tscn" id="3_kl0bm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rwas"]
 albedo_color = Color(0.33759454, 0.69813275, 0.8183481, 1)
@@ -18,6 +20,8 @@ size = Vector3(1, 0.15820313, 1)
 [node name="Player" type="CharacterBody3D" unique_id=1833152759]
 collision_layer = 2
 script = ExtResource("1_xhfnw")
+grenade_scene = ExtResource("2_bkgf5")
+bullet_scene = ExtResource("3_kl0bm")
 
 [node name="Body" type="MeshInstance3D" parent="." unique_id=1617926624]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -32,11 +36,15 @@ mesh = SubResource("BoxMesh_0rwas")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99999994, 0)
 shape = SubResource("BoxShape3D_0rwas")
 
-[node name="Marker3D" type="Marker3D" parent="." unique_id=661409739]
+[node name="GrenadeOrigin" type="Marker3D" parent="." unique_id=661409739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.094703, -0.8070909)
+
+[node name="BulletOrigin" type="Marker3D" parent="." unique_id=398208469]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.094703, -0.8070909)
 
 [node name="Area3D" type="Area3D" parent="." unique_id=619456116]
 collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=211775635]
 transform = Transform3D(1.481834, 0, 0, 0, 1, 0, 0, 0, 2.0015202, 0, 0.78540826, -1.3427633)

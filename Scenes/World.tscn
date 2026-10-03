@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c3hltmpfo2agj"]
 
 [ext_resource type="PackedScene" uid="uid://cspapb50px2lj" path="res://Nodes/Player.tscn" id="1_5nsto"]
-[ext_resource type="PackedScene" uid="uid://c462wxp4854f5" path="res://Nodes/Bullet.tscn" id="2_p70al"]
 [ext_resource type="Script" uid="uid://c6peeeeku06lj" path="res://Scripts/camera_target.gd" id="3_p70al"]
 [ext_resource type="Script" uid="uid://bvmjqxfnmi6x6" path="res://Scripts/enemy_spawner.gd" id="5_p70al"]
 [ext_resource type="Script" uid="uid://cc5tkqn26pkrw" path="res://Scripts/enemy_spawn_config.gd" id="6_45d1s"]
@@ -68,7 +67,6 @@ shape = SubResource("BoxShape3D_f3sb7")
 
 [node name="Player" parent="." unique_id=1833152759 instance=ExtResource("1_5nsto")]
 unique_name_in_owner = true
-projectile_scene = ExtResource("2_p70al")
 
 [node name="CameraTarget" type="Node3D" parent="." unique_id=1955040109]
 transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 0, 0)

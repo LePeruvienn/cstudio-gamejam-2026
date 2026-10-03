@@ -1,23 +1,25 @@
-[gd_scene format=3 uid="uid://c462wxp4854f5"]
+[gd_scene format=3 uid="uid://co2l7ep7vfmjg"]
 
-[ext_resource type="Script" uid="uid://ctebq40b1u2d3" path="res://Scripts/bullet.gd" id="1_qnq6o"]
+[ext_resource type="Script" uid="uid://cota7fg0sx0qs" path="res://Scripts/bullet.gd" id="1_kf00t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnq6o"]
-albedo_color = Color(0.89373624, 0.5195543, 0.48171782, 1)
+albedo_color = Color(0.7582163, 0.62509334, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_qnq6o"]
 size = Vector3(2.675537, 2.220459, 0.7246094)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6g8uh"]
-albedo_color = Color(0.7764706, 0.81960785, 0, 1)
+albedo_color = Color(0.5997877, 0.35162526, 0.210127, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6g8uh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6g8uh"]
 size = Vector3(1, 1, 0.87939453)
 
-[node name="Bullet" type="RigidBody3D" unique_id=413439834]
-script = ExtResource("1_qnq6o")
+[node name="Bullet" type="Area3D" unique_id=503201559]
+collision_mask = 4
+script = ExtResource("1_kf00t")
+speed = 20.0
 
 [node name="Mesh" type="Node3D" parent="." unique_id=1385226503]
 
@@ -35,4 +37,9 @@ mesh = SubResource("BoxMesh_6g8uh")
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 1.25, 0, 0, -0.5524994)
 shape = SubResource("BoxShape3D_6g8uh")
 
+[node name="LifeTimer" type="Timer" parent="." unique_id=566052758]
+wait_time = 20.0
+autostart = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
