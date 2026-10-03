@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://dl74hffkhuo2v"]
+
+[ext_resource type="Script" uid="uid://s7xv6lydekpt" path="res://Interfaces/death_item.gd" id="1_lmwve"]
+
+[node name="DeathContractInterface" type="Control" unique_id=2067919147]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_right = -911.0
+offset_bottom = -437.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_lmwve")
+
+[node name="Panel" type="Panel" parent="." unique_id=2080093544]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 1.0
+offset_top = -98.0
+offset_right = 214.0
+offset_bottom = 92.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=671803873]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=346261086]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1742301333]
+layout_mode = 2
+text = "Contrat"
+horizontal_alignment = 1
+
+[node name="Space2" type="Control" parent="Panel/MarginContainer/VBoxContainer" unique_id=1386793487]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="From" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=402927162]
+layout_mode = 2
+
+[node name="label_title" type="Label" parent="Panel/MarginContainer/VBoxContainer/From" unique_id=306646561]
+layout_mode = 2
+text = "Tuer par : "
+
+[node name="Control" type="Control" parent="Panel/MarginContainer/VBoxContainer/From" unique_id=1181509571]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="label_text" type="Label" parent="Panel/MarginContainer/VBoxContainer/From" unique_id=417253900]
+layout_mode = 2
+text = "???"
+
+[node name="Date" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=53663566]
+layout_mode = 2
+
+[node name="label_title" type="Label" parent="Panel/MarginContainer/VBoxContainer/Date" unique_id=1251651241]
+layout_mode = 2
+text = "Date : "
+
+[node name="Control" type="Control" parent="Panel/MarginContainer/VBoxContainer/Date" unique_id=557990094]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="label_text" type="Label" parent="Panel/MarginContainer/VBoxContainer/Date" unique_id=557601619]
+layout_mode = 2
+text = "???"
+
+[node name="Location" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=307013051]
+layout_mode = 2
+
+[node name="label_title" type="Label" parent="Panel/MarginContainer/VBoxContainer/Location" unique_id=884880313]
+layout_mode = 2
+text = "Lieu : "
+
+[node name="Control" type="Control" parent="Panel/MarginContainer/VBoxContainer/Location" unique_id=122854177]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="label_text" type="Label" parent="Panel/MarginContainer/VBoxContainer/Location" unique_id=704805873]
+layout_mode = 2
+text = "???"
+
+[node name="Space" type="Control" parent="Panel/MarginContainer/VBoxContainer" unique_id=1509598409]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=1890372167]
+layout_mode = 2
+text = "Select"
