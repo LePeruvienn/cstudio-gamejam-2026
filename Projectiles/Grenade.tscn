@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://c462wxp4854f5"]
 
-[ext_resource type="Script" uid="uid://ctebq40b1u2d3" path="res://Scripts/grenade.gd" id="1_qnq6o"]
+[ext_resource type="Script" uid="uid://ctebq40b1u2d3" path="res://Scripts/grenade.gd" id="1_07lws"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q2d71"]
+friction = 0.2
+rough = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_rsrsk"]
 
@@ -10,7 +14,8 @@
 radius = 2.0
 
 [node name="Grenade" type="RigidBody3D" unique_id=413439834]
-script = ExtResource("1_qnq6o")
+physics_material_override = SubResource("PhysicsMaterial_q2d71")
+script = ExtResource("1_07lws")
 damage = 30
 impulse_force = 5.0
 
@@ -30,7 +35,7 @@ collision_mask = 7
 shape = SubResource("SphereShape3D_dunbd")
 
 [node name="ExplosionTimer" type="Timer" parent="." unique_id=645097736]
-wait_time = 5.0
+wait_time = 3.0
 autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

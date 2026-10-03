@@ -30,11 +30,15 @@ func handle_movement(delta: float) -> void:
 	print("THIS IS THE DEFAULT MOVE!!!")
 	
 func rotate_towards_player(delta: float) -> void:
+	if not is_instance_valid(player):
+		return
 	var direction: Vector3 = (player.position - position).normalized()
 	var target_angle: float = atan2(-direction.x, -direction.z)
 	rotation.y = lerp_angle(rotation.y, target_angle, rotation_speed * delta)
 
 func move_towards_player(delta: float) -> void:
+	if not is_instance_valid(player):
+		return
 	var direction: Vector3 = (player.position - position).normalized()
 	var target_angle: float = atan2(-direction.x, -direction.z)
 	velocity.x = direction.x * speed
