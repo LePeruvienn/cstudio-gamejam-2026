@@ -45,3 +45,8 @@ func _init(p_killed_by: KilledBy, p_location: Location, p_date: int):
 	killed_by = p_killed_by
 	location = p_location
 	date = p_date
+
+func _to_string() -> String:
+	return str("Killed by: ", KILLED_BY_NAMES[killed_by], 
+	", Location: ", LOCATION_NAMES[location],
+	", Date: ", date)

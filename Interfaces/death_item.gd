@@ -7,6 +7,8 @@ class_name ContractItemUI
 
 var current_contract: DeathData = null
 
+signal choice_made(contract: DeathData)
+
 func set_from_death_condition(death_data: DeathData):
 	from_label.text = DeathData.KILLED_BY_NAMES[death_data.killed_by]
 	date_label.text = str(death_data.date)
@@ -15,3 +17,6 @@ func set_from_death_condition(death_data: DeathData):
 
 func get_current_contract() -> DeathData:
 	return current_contract
+
+func _on_button_pressed() -> void:
+	choice_made.emit(current_contract)
