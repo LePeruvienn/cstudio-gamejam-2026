@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c462wxp4854f5"]
+
+[ext_resource type="Script" uid="uid://ctebq40b1u2d3" path="res://Scripts/projectile.gd" id="1_qnq6o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnq6o"]
+albedo_color = Color(0.89373624, 0.5195543, 0.48171782, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qnq6o"]
+size = Vector3(2.675537, 2.220459, 0.7246094)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6g8uh"]
+albedo_color = Color(0.7764706, 0.81960785, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6g8uh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6g8uh"]
+size = Vector3(1, 1, 0.87939453)
+
+[node name="Projectile" type="RigidBody3D" unique_id=413439834]
+script = ExtResource("1_qnq6o")
+
+[node name="Mesh" type="Node3D" parent="." unique_id=1385226503]
+
+[node name="Nose" type="MeshInstance3D" parent="Mesh" unique_id=1619512589]
+transform = Transform3D(-0.062071715, 0, 0, 0, 0.075293384, 0, 0, 0, 0.26846007, -0.0012350697, -0.0028400458, -1.0112472)
+material_override = SubResource("StandardMaterial3D_qnq6o")
+mesh = SubResource("BoxMesh_qnq6o")
+
+[node name="Body" type="MeshInstance3D" parent="Mesh" unique_id=1990905714]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, -0.5023023)
+material_override = SubResource("StandardMaterial3D_6g8uh")
+mesh = SubResource("BoxMesh_6g8uh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1616861276]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 1.25, 0, 0, -0.5524994)
+shape = SubResource("BoxShape3D_6g8uh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
