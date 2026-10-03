@@ -20,6 +20,9 @@ var is_dead: bool = false
 
 var mouse_world_position: Vector3 = Vector3.ZERO
 
+func ready():
+	$Main/AnimationPlayer.set_current_animation("idling")
+
 func _physics_process(delta: float) -> void:
 	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction: Vector3 =  Vector3(input_dir.x, 0, input_dir.y).normalized()
