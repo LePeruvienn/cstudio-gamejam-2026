@@ -1,24 +1,22 @@
-[gd_scene format=3 uid="uid://bexqxstavo0in"]
+[gd_scene format=3 uid="uid://c462wxp4854f5"]
 
-[ext_resource type="Script" uid="uid://d14mgcsidpwb" path="res://Nodes/projectile.gd" id="1_qnq6o"]
+[ext_resource type="Script" uid="uid://ctebq40b1u2d3" path="res://Scripts/bullet.gd" id="1_qnq6o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnq6o"]
-albedo_color = Color(4.813075e-07, 0.7269316, 0.74901384, 1)
+albedo_color = Color(0.89373624, 0.5195543, 0.48171782, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_qnq6o"]
 size = Vector3(2.675537, 2.220459, 0.7246094)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6g8uh"]
-albedo_color = Color(0, 0.40071338, 0.8465196, 1)
+albedo_color = Color(0.7764706, 0.81960785, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6g8uh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6g8uh"]
 size = Vector3(1, 1, 0.87939453)
 
-[node name="Area3D" type="Area3D" unique_id=503201559]
-collision_layer = 8
-collision_mask = 2
+[node name="Bullet" type="RigidBody3D" unique_id=413439834]
 script = ExtResource("1_qnq6o")
 
 [node name="Mesh" type="Node3D" parent="." unique_id=1385226503]

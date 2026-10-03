@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://by8ffjiaxaeb0"]
+
+[ext_resource type="Script" uid="uid://clmc75bljg54g" path="res://Scripts/melee.gd" id="1_0kn8i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rwas"]
+albedo_color = Color(0.99607843, 0.22745098, 0.13333334, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0rwas"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0rwas"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0rwas"]
+size = Vector3(1, 1.9999999, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tt7e2"]
+bg_color = Color(1, 0, 0.039215688, 0.6745098)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tt7e2"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Melee" type="CharacterBody3D" unique_id=1833152759]
+script = ExtResource("1_0kn8i")
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=1617926624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_0rwas")
+mesh = SubResource("CapsuleMesh_0rwas")
+
+[node name="Eyes" type="MeshInstance3D" parent="." unique_id=1819524315]
+transform = Transform3D(0.50967765, 0, 0, 0, -0.16133729, 0, 0, 0, 0.34188923, 0.0051529408, 1.2974364, -0.40397352)
+mesh = SubResource("BoxMesh_0rwas")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=205765014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99999994, 0)
+shape = SubResource("BoxShape3D_0rwas")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=502581390]
+transparent_bg = true
+size = Vector2i(100, 25)
+
+[node name="ProgressBar" type="ProgressBar" parent="SubViewport" unique_id=450526275]
+offset_left = -1.0
+offset_right = 109.0
+offset_bottom = 27.0
+scale = Vector2(1, 1.0067551)
+theme_override_styles/fill = SubResource("StyleBoxFlat_tt7e2")
+value = 50.0
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1291959455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2244587, 0)
+billboard = 1
+transparent = false
+texture = SubResource("ViewportTexture_tt7e2")
