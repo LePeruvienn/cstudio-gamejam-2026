@@ -14,6 +14,5 @@ func _on_body_entered(body: Node3D) -> void:
 		body.take_damage(damage)
 	queue_free()
 
-
 func _on_life_timer_timeout() -> void:
 	queue_free()
