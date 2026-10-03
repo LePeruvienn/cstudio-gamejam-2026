@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cqovree5grn6g"]
 
 [ext_resource type="Script" uid="uid://bvmjqxfnmi6x6" path="res://Scripts/enemy_spawner.gd" id="1_6jpfj"]
-[ext_resource type="PackedScene" uid="uid://b70fyiuxeya2j" path="res://Nodes/Enemy.tscn" id="2_eo2pv"]
+[ext_resource type="PackedScene" uid="uid://b70fyiuxeya2j" path="res://Enemies/Enemy.tscn" id="2_eo2pv"]
 
 [sub_resource type="Curve3D" id="Curve3D_gjpho"]
 closed = true

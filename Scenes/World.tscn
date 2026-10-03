@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://c3hltmpfo2agj"]
 
 [ext_resource type="PackedScene" uid="uid://cspapb50px2lj" path="res://Nodes/Player.tscn" id="1_5nsto"]
-[ext_resource type="PackedScene" uid="uid://b70fyiuxeya2j" path="res://Nodes/Enemy.tscn" id="2_gjpho"]
-[ext_resource type="PackedScene" uid="uid://c462wxp4854f5" path="res://Nodes/Projectile.tscn" id="2_p70al"]
+[ext_resource type="PackedScene" uid="uid://c462wxp4854f5" path="res://Nodes/Bullet.tscn" id="2_p70al"]
 [ext_resource type="Script" uid="uid://c6peeeeku06lj" path="res://Scripts/camera_target.gd" id="3_p70al"]
 [ext_resource type="Script" uid="uid://bvmjqxfnmi6x6" path="res://Scripts/enemy_spawner.gd" id="5_p70al"]
+[ext_resource type="Script" uid="uid://cc5tkqn26pkrw" path="res://Scripts/enemy_spawn_config.gd" id="6_45d1s"]
+[ext_resource type="PackedScene" uid="uid://by8ffjiaxaeb0" path="res://Enemies/Melee.tscn" id="6_y7y61"]
+[ext_resource type="PackedScene" uid="uid://cfxpox52bolx4" path="res://Enemies/Mage.tscn" id="7_y7y61"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -22,6 +24,18 @@ sky = SubResource("Sky_fj7yv")
 [sub_resource type="BoxShape3D" id="BoxShape3D_f3sb7"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_gjpho"]
+
+[sub_resource type="Resource" id="Resource_p70al"]
+script = ExtResource("6_45d1s")
+enemy_scene = ExtResource("6_y7y61")
+chance = 60.0
+metadata/_custom_type_script = "uid://cc5tkqn26pkrw"
+
+[sub_resource type="Resource" id="Resource_45d1s"]
+script = ExtResource("6_45d1s")
+enemy_scene = ExtResource("7_y7y61")
+chance = 40.0
+metadata/_custom_type_script = "uid://cc5tkqn26pkrw"
 
 [sub_resource type="Curve3D" id="Curve3D_gjpho"]
 closed = true
@@ -81,7 +95,7 @@ mesh = SubResource("CylinderMesh_gjpho")
 
 [node name="EnemySpawner" type="Node3D" parent="." unique_id=939323717]
 script = ExtResource("5_p70al")
-enemy_scene = ExtResource("2_gjpho")
+enemy_spawn_configs = Array[ExtResource("6_45d1s")]([SubResource("Resource_p70al"), SubResource("Resource_45d1s")])
 
 [node name="EnemyTimer" type="Timer" parent="EnemySpawner" unique_id=1027248567]
 autostart = true
