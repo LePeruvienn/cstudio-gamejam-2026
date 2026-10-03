@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://c3hltmpfo2agj"]
+
+[ext_resource type="Script" uid="uid://ltjdr6nuvsoa" path="res://Scripts/game_manager.gd" id="1_vy5pj"]
+[ext_resource type="Script" uid="uid://c6peeeeku06lj" path="res://Scripts/camera_target.gd" id="2_vy5pj"]
+[ext_resource type="Script" uid="uid://bvmjqxfnmi6x6" path="res://Scripts/enemy_spawner.gd" id="3_bmxlf"]
+[ext_resource type="Script" uid="uid://cc5tkqn26pkrw" path="res://Scripts/enemy_spawn_config.gd" id="4_4kpch"]
+[ext_resource type="PackedScene" uid="uid://by8ffjiaxaeb0" path="res://Enemies/Melee.tscn" id="5_grg3l"]
+[ext_resource type="PackedScene" uid="uid://cfxpox52bolx4" path="res://Enemies/Mage.tscn" id="6_frkhe"]
+[ext_resource type="Script" uid="uid://bjinnmvc12qr2" path="res://Scripts/game_ui.gd" id="7_1p5hy"]
+
+[sub_resource type="Resource" id="Resource_p70al"]
+script = ExtResource("4_4kpch")
+enemy_scene = ExtResource("5_grg3l")
+chance = 60.0
+metadata/_custom_type_script = "uid://cc5tkqn26pkrw"
+
+[sub_resource type="Resource" id="Resource_45d1s"]
+script = ExtResource("4_4kpch")
+enemy_scene = ExtResource("6_frkhe")
+chance = 40.0
+metadata/_custom_type_script = "uid://cc5tkqn26pkrw"
+
+[sub_resource type="Curve3D" id="Curve3D_gjpho"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 24.062225, -0.00012207031, 24.013021, 0, 0, 0, 0, 0, 0, 24.062225, -0.00012207031, -24.559616, 0, 0, 0, 0, 0, 0, -25.108593, -0.00012207031, -24.559616, 0, 0, 0, 0, 0, 0, -24.869324, -0.00012207031, 24.970118),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_fj7yv"]
+sky_material = SubResource("ProceduralSkyMaterial_f3sb7")
+
+[sub_resource type="Environment" id="Environment_tlwt5"]
+background_mode = 2
+sky = SubResource("Sky_fj7yv")
+
+[sub_resource type="BoxMesh" id="BoxMesh_gv5m4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f3sb7"]
+
+[node name="GameManager" type="Node3D" unique_id=1168028380]
+script = ExtResource("1_vy5pj")
+
+[node name="CameraTarget" type="Node3D" parent="." unique_id=1955040109]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 0, 0)
+script = ExtResource("2_vy5pj")
+
+[node name="Camera3D" type="Camera3D" parent="CameraTarget" unique_id=1556034146]
+transform = Transform3D(1, 0, 0, 0, 0.9626788, -0.27064618, 0, 0.27064618, 0.9626788, 0, -3.924, 16.761)
+fov = 40.0
+
+[node name="EnemySpawner" type="Node3D" parent="." unique_id=939323717]
+script = ExtResource("3_bmxlf")
+enemy_spawn_configs = Array[ExtResource("4_4kpch")]([SubResource("Resource_p70al"), SubResource("Resource_45d1s")])
+
+[node name="EnemyTimer" type="Timer" parent="EnemySpawner" unique_id=1027248567]
+autostart = true
+
+[node name="SpawnPath" type="Path3D" parent="EnemySpawner" unique_id=1143729885]
+curve = SubResource("Curve3D_gjpho")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="EnemySpawner/SpawnPath" unique_id=1532760944]
+transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 24.062225, -0.00012207031, 24.013021)
+
+[node name="World" type="Node3D" parent="." unique_id=1460159031]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=1197037605]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=653009366]
+environment = SubResource("Environment_tlwt5")
+
+[node name="Ground" type="StaticBody3D" parent="World" unique_id=934886842]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground" unique_id=1461003861]
+transform = Transform3D(50, 0, 0, 0, 0.5, 0, 0, 0, 50, 0, -0.25, 0)
+mesh = SubResource("BoxMesh_gv5m4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground" unique_id=1743996998]
+transform = Transform3D(50, 0, 0, 0, 0.5, 0, 0, 0, 50, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_f3sb7")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1024979472]
+script = ExtResource("7_1p5hy")
+
+[connection signal="timeout" from="EnemySpawner/EnemyTimer" to="EnemySpawner" method="_on_enemy_timer_timeout"]

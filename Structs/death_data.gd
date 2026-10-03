@@ -18,11 +18,26 @@ enum KilledBy
 	YOURSELF
 }
 
+enum ClockState
+{
+	TOP_LEFT,
+	TOP_RIGHT,
+	BOT_LEFT,
+	BOT_RIGHT
+}
+
 const LOCATION_NAMES := {
 	Location.TOP_LEFT: "Top Left",
 	Location.TOP_RIGHT: "Top Right",
 	Location.BOT_LEFT: "Bottom Left",
 	Location.BOT_RIGHT: "Bottom Right",
+}
+
+const CLOCK_STATE_NAMES := {
+	ClockState.TOP_LEFT: "Top Left",
+	ClockState.TOP_RIGHT: "Top Right",
+	ClockState.BOT_LEFT: "Bottom Left",
+	ClockState.BOT_RIGHT: "Bottom Right",
 }
 
 const KILLED_BY_NAMES := {
@@ -33,20 +48,27 @@ const KILLED_BY_NAMES := {
 
 var killed_by: KilledBy
 var location: Location
-var date: int
+var clock_state: ClockState
 
 static func create_random() -> DeathData:
 	var killed_by: KilledBy = KilledBy.values().pick_random()
 	var location: Location = Location.values().pick_random()
-	var date: int = randi_range(MIN_DATE, MAX_DATE)
-	return DeathData.new(killed_by, location, date)
+	var clock_state: ClockState = ClockState.values().pick_random()
+	return DeathData.new(killed_by, location, clock_state)
 
-func _init(p_killed_by: KilledBy, p_location: Location, p_date: int):
+func _init(p_killed_by: KilledBy, p_location: Location, p_clock_state: ClockState):
 	killed_by = p_killed_by
 	location = p_location
-	date = p_date
+	clock_state = p_clock_state
 
 func _to_string() -> String:
 	return str("Killed by: ", KILLED_BY_NAMES[killed_by], 
 	", Location: ", LOCATION_NAMES[location],
-	", Date: ", date)
+	", ClockState: ", clock_state)
+
+func is_equal_to(other: DeathData) -> bool:
+	return (
+		killed_by == other.killed_by
+		and location == other.location
+		and clock_state == other.clock_state
+	)

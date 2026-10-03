@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d5hpgqlcmgga"]
 
-[ext_resource type="Script" uid="uid://u4ai8558dm86" path="res://Interfaces/choose_death.gd" id="1_jvgjg"]
+[ext_resource type="Script" uid="uid://u4ai8558dm86" path="res://Scripts/choose_death.gd" id="1_jvgjg"]
 [ext_resource type="PackedScene" uid="uid://dl74hffkhuo2v" path="res://Interfaces/death_item.tscn" id="1_x26to"]
 
 [node name="ChooseYourDeath" type="Control" unique_id=321010564]
@@ -11,6 +11,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jvgjg")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=701813453]
+layout_mode = 0
+offset_left = 646.0
+offset_right = 686.0
+offset_bottom = 40.0
+theme_override_constants/margin_top = 128
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=679782325]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Choisi ton destin"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1970234228]
 layout_mode = 1
@@ -37,19 +49,6 @@ layout_mode = 2
 [node name="Control" type="Control" parent="HBoxContainer" unique_id=800704528]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="." unique_id=679782325]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -158.0
-offset_top = 137.0
-offset_right = 156.0
-offset_bottom = 182.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 32
-text = "Choose your destiny"
 
 [connection signal="choice_made" from="HBoxContainer/DeathContractInterface" to="." method="_on_death_contract_interface_choice_made"]
 [connection signal="choice_made" from="HBoxContainer/DeathContractInterface2" to="." method="_on_death_contract_interface_2_choice_made"]

@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dci05pyf3oddo"]
+
+[ext_resource type="Script" uid="uid://co85esdlolb42" path="res://Scripts/looser_screen.gd" id="1_3odii"]
+[ext_resource type="PackedScene" uid="uid://c1lycls8bw1nj" path="res://Interfaces/death_info_ui.tscn" id="1_qdwha"]
+
+[node name="Looser_screen" type="Control" unique_id=1260286148]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3odii")
+
+[node name="Panel" type="Panel" parent="." unique_id=1049658511]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=464293917]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 994.0
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer" unique_id=1900221586]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer" unique_id=523234717]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer" unique_id=1900225770]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Pas mal pour un vaut rien ...
+As tu respecter le contrat ?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1872530326]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer" unique_id=1107206357]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="EndRoundMessage" type="Label" parent="Panel/VBoxContainer/HBoxContainer/MarginContainer" unique_id=920504008]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Bien jouer !"
+
+[node name="DeathContractInterface" parent="Panel/VBoxContainer/HBoxContainer" unique_id=2067919147 instance=ExtResource("1_qdwha")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/VBoxContainer" unique_id=1179785438]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/MarginContainer2" unique_id=72536785]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Texte qu'il faut mettre"

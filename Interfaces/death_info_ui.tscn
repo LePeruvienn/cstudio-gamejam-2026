@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://c1lycls8bw1nj"]
+
+[ext_resource type="Script" uid="uid://dqnenrjp6kbsy" path="res://Scripts/death_info_ui.gd" id="1_bljyd"]
+
+[node name="DeathContractInterface" type="Control" unique_id=2067919147]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = -1418.2332
+offset_bottom = -654.9829
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1688826, 1.0777867)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_bljyd")
+
+[node name="Panel" type="Panel" parent="." unique_id=1675817450]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = -0.85549927
+offset_top = -187.42113
+offset_right = 454.13556
+offset_bottom = 179.64882
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1622245583]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1533043192]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1215571685]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Contrat"
+horizontal_alignment = 1
+
+[node name="Space2" type="Control" parent="Panel/MarginContainer/VBoxContainer" unique_id=1159528620]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="From" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1159628075]
+layout_mode = 2
+
+[node name="label_title" type="Label" parent="Panel/MarginContainer/VBoxContainer/From" unique_id=140539339]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Tuer par : "
+
+[node name="Control" type="Control" parent="Panel/MarginContainer/VBoxContainer/From" unique_id=1636602262]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="label_text" type="Label" parent="Panel/MarginContainer/VBoxContainer/From" unique_id=494245886]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "???"
+
+[node name="Control2" type="Control" parent="Panel/MarginContainer/VBoxContainer/From" unique_id=2051306044]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="label_status" type="Label" parent="Panel/MarginContainer/VBoxContainer/From" unique_id=1725643454]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Oui"
+
+[node name="Clock" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1199067644]
+layout_mode = 2
+
+[node name="label_title" type="Label" parent="Panel/MarginContainer/VBoxContainer/Clock" unique_id=567515001]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Horloge à :"
+
+[node name="Control" type="Control" parent="Panel/MarginContainer/VBoxContainer/Clock" unique_id=1932910649]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="label_text" type="Label" parent="Panel/MarginContainer/VBoxContainer/Clock" unique_id=309679654]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "???"
+
+[node name="Control2" type="Control" parent="Panel/MarginContainer/VBoxContainer/Clock" unique_id=1725285516]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="label_status" type="Label" parent="Panel/MarginContainer/VBoxContainer/Clock" unique_id=224599131]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Oui"
+
+[node name="Location" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=136112311]
+layout_mode = 2
+
+[node name="label_title" type="Label" parent="Panel/MarginContainer/VBoxContainer/Location" unique_id=1986753043]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Lieu : "
+
+[node name="Control" type="Control" parent="Panel/MarginContainer/VBoxContainer/Location" unique_id=677196257]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="label_text" type="Label" parent="Panel/MarginContainer/VBoxContainer/Location" unique_id=1440394363]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "???"
+
+[node name="Control2" type="Control" parent="Panel/MarginContainer/VBoxContainer/Location" unique_id=1151189462]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="label_status" type="Label" parent="Panel/MarginContainer/VBoxContainer/Location" unique_id=1652911162]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Oui"
+
+[node name="Space" type="Control" parent="Panel/MarginContainer/VBoxContainer" unique_id=916487788]
+layout_mode = 2
+size_flags_vertical = 3
