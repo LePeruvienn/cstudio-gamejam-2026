@@ -25,8 +25,21 @@ bottom_radius = 1.0
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_m6fw0")
+heal_range = null
+heal_amount = null
+heal_cooldown = null
 damage_taken_sounds = Array[AudioStream]([ExtResource("2_8hbcp"), ExtResource("3_idjxt"), ExtResource("4_n71wq")])
 max_health = 30
+speed = null
+rotation_speed = null
+knockback_force = null
+knockback_friction = null
+spawn_animation_enabled = null
+spawn_start_scale = null
+spawn_animation_duration = null
+death_animation_enabled = null
+death_end_scale = null
+death_animation_duration = null
 
 [node name="Allie2" parent="." unique_id=949007265 instance=ExtResource("2_aspq0")]
 transform = Transform3D(-1.6, 0, -1.3987645e-07, 0, 1.6, 0, 1.3987645e-07, 0, -1.6, 0, 0, 0)
