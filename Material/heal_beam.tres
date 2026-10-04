@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ci0eqt7erf3cu"]
+
+[ext_resource type="Shader" uid="uid://p23ne6cqkedq" path="res://Material/heal_beam.gdshader" id="1_syiau"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_syiau")

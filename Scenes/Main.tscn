@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bkvoubks8y664" path="res://Interfaces/player_hud.tscn" id="2_4kpch"]
 [ext_resource type="PackedScene" uid="uid://dci05pyf3oddo" path="res://Interfaces/looser.tscn" id="2_50glp"]
 [ext_resource type="PackedScene" uid="uid://d5hpgqlcmgga" path="res://Interfaces/choose_death.tscn" id="2_bmxlf"]
+[ext_resource type="PackedScene" uid="uid://57dvaroqnk36" path="res://Interfaces/menu.tscn" id="2_frkhe"]
 [ext_resource type="Script" uid="uid://c6peeeeku06lj" path="res://Scripts/camera_target.gd" id="2_vy5pj"]
 [ext_resource type="Script" uid="uid://bvmjqxfnmi6x6" path="res://Scripts/enemy_spawner.gd" id="3_bmxlf"]
 [ext_resource type="Script" uid="uid://cc5tkqn26pkrw" path="res://Scripts/enemy_spawn_config.gd" id="4_4kpch"]
@@ -11,7 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://by8ffjiaxaeb0" path="res://Enemies/Melee.tscn" id="5_grg3l"]
 [ext_resource type="PackedScene" uid="uid://cfxpox52bolx4" path="res://Enemies/Mage.tscn" id="6_frkhe"]
 [ext_resource type="Script" uid="uid://bjinnmvc12qr2" path="res://Scripts/game_ui.gd" id="7_1p5hy"]
+[ext_resource type="PackedScene" uid="uid://dnb0dwpg7tdye" path="res://Enemies/Healer.tscn" id="10_1p5hy"]
 [ext_resource type="Script" uid="uid://g3svsd8prvio" path="res://Scripts/location_manager.gd" id="11_grg3l"]
+
+[sub_resource type="Resource" id="Resource_frkhe"]
+script = ExtResource("4_4kpch")
+enemy_scene = ExtResource("10_1p5hy")
+metadata/_custom_type_script = "uid://cc5tkqn26pkrw"
 
 [sub_resource type="Resource" id="Resource_p70al"]
 script = ExtResource("4_4kpch")
@@ -56,6 +63,7 @@ size = Vector3(19.949738, 7.724121, 18.847351)
 [node name="GameManager" type="Node3D" parent="." unique_id=1168028380]
 unique_name_in_owner = true
 script = ExtResource("1_vy5pj")
+menu_scene = ExtResource("2_frkhe")
 player_hud_scene = ExtResource("2_4kpch")
 choose_contract_scene = ExtResource("2_bmxlf")
 looser_scene = ExtResource("2_50glp")
@@ -71,7 +79,7 @@ fov = 40.0
 
 [node name="EnemySpawner" type="Node3D" parent="." unique_id=939323717]
 script = ExtResource("3_bmxlf")
-enemy_spawn_configs = Array[ExtResource("4_4kpch")]([SubResource("Resource_p70al"), SubResource("Resource_45d1s")])
+enemy_spawn_configs = Array[ExtResource("4_4kpch")]([SubResource("Resource_frkhe"), SubResource("Resource_p70al"), SubResource("Resource_45d1s")])
 
 [node name="EnemyTimer" type="Timer" parent="EnemySpawner" unique_id=1027248567]
 autostart = true

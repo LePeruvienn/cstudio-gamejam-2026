@@ -5,11 +5,13 @@ class_name GameManager
 @onready var enemy_spawner: EnemySpawner = $"../EnemySpawner"
 @onready var location_manager: LocationManager = $"../LocationManager"
 
+@export var menu_scene: PackedScene
 @export var player_hud_scene: PackedScene
 @export var choose_contract_scene: PackedScene
 @export var looser_scene: PackedScene
 @export var player_scene: PackedScene
 
+var menu_scene_instance: Menu = null
 var player_hud_instance: PlayerHUD = null
 var choose_contract_instance: DeathChooser = null
 var player_instance: Player = null
@@ -23,7 +25,15 @@ func _ready() -> void:
 
 func start_game() -> void:
 	enemy_spawner.set_active(false)
-	open_choose_contrat();
+	open_menu();
+
+func open_menu() -> void:
+	menu_scene_instance = menu_scene.instantiate()
+	canva_layer.add_child(menu_scene_instance)
+	await menu_scene_instance.pressed_play
+	menu_scene_instance.queue_free()
+	menu_scene_instance = null
+	open_choose_contrat()
 
 func open_choose_contrat() -> void:
 	choose_contract_instance = choose_contract_scene.instantiate()
@@ -72,7 +82,7 @@ func show_looser_screen(death_data: DeathData):
 	# Managing win
 	if is_round_won:
 		round_counter += 1
+		open_choose_contrat()
 	else:
 		round_counter = 0
-	# Continue
-	open_choose_contrat()
+		open_menu()

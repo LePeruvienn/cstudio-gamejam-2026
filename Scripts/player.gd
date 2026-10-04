@@ -38,6 +38,11 @@ func _physics_process(delta: float) -> void:
 	handle_grenade()
 	handle_bullet()
 
+func heal(heal_amount: int):
+	health += heal_amount
+	if health > max_health:
+		health = max_health
+
 func player_take_damage(damage_amount: int, p_killed_by: DeathData.KilledBy) -> void:
 	health -= damage_amount
 	if health <= 0:
@@ -99,4 +104,4 @@ func handle_melee_attack() -> void:
 	var targets = melee_area.get_overlapping_bodies()
 	for target in targets:
 		if target.has_method("take_damage"):
-			target.take_damage(damage)
+			target.take_damage(damage, (target.position - position).normalized())

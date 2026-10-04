@@ -1,16 +1,17 @@
-[gd_scene format=3 uid="uid://cfxpox52bolx4"]
+[gd_scene format=3 uid="uid://dnb0dwpg7tdye"]
 
-[ext_resource type="Script" uid="uid://bhiumehdpjbrd" path="res://Scripts/mage.gd" id="1_npit8"]
-[ext_resource type="PackedScene" uid="uid://bexqxstavo0in" path="res://Projectiles/Projectile.tscn" id="2_l4rfc"]
+[ext_resource type="Script" uid="uid://dmefp6dmwe0pt" path="res://Scripts/healer.gd" id="1_m6fw0"]
+[ext_resource type="Material" uid="uid://ci0eqt7erf3cu" path="res://Material/heal_beam.tres" id="2_m6hqm"]
+[ext_resource type="Script" uid="uid://ghuflp2pu1ow" path="res://Scripts/beam.gd" id="2_vk503"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rwas"]
-albedo_color = Color(0.9296176, 0.0003322947, 0.84630823, 1)
+albedo_color = Color(0.20173839, 0.6727177, 5.7756904e-07, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0rwas"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0rwas"]
 
-[sub_resource type="PrismMesh" id="PrismMesh_npit8"]
+[sub_resource type="BoxMesh" id="BoxMesh_vk503"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0rwas"]
 size = Vector3(1, 1.9999999, 1)
@@ -21,17 +22,20 @@ bg_color = Color(1, 0, 0.039215688, 0.6745098)
 [sub_resource type="ViewportTexture" id="ViewportTexture_tt7e2"]
 viewport_path = NodePath("SubViewport")
 
-[node name="Mage" type="CharacterBody3D" unique_id=1833152759]
+[sub_resource type="CylinderMesh" id="CylinderMesh_m6fw0"]
+top_radius = 1.0
+bottom_radius = 1.0
+
+[node name="Healer" type="CharacterBody3D" unique_id=1833152759]
 collision_layer = 4
 collision_mask = 7
-script = ExtResource("1_npit8")
-projectile_scene = ExtResource("2_l4rfc")
-projectile_speed = 20.0
+script = ExtResource("1_m6fw0")
+max_health = 30
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=1637488627]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9871565, -0.79006124)
 
-[node name="AttackTimer" type="Timer" parent="." unique_id=556107115]
+[node name="HealTimer" type="Timer" parent="." unique_id=556107115]
 wait_time = 0.5
 
 [node name="Body" type="MeshInstance3D" parent="." unique_id=1617926624]
@@ -44,8 +48,8 @@ transform = Transform3D(0.50967765, 0, 0, 0, -0.16133729, 0, 0, 0, 0.34188923, 0
 mesh = SubResource("BoxMesh_0rwas")
 
 [node name="Hat" type="MeshInstance3D" parent="." unique_id=2005522792]
-transform = Transform3D(1, 0, 0, 0, 0.39999998, 0, 0, 0, 0.47905612, 0, 1.9760392, -0.30575252)
-mesh = SubResource("PrismMesh_npit8")
+transform = Transform3D(1, 0, 0, 0, 0.23331927, 0, 0, 0, 1.0030195, 0, 1.699477, -0.045144565)
+mesh = SubResource("BoxMesh_vk503")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=205765014]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99999994, 0)
@@ -69,4 +73,11 @@ billboard = 1
 transparent = false
 texture = SubResource("ViewportTexture_tt7e2")
 
-[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[node name="Beam" type="MeshInstance3D" parent="." unique_id=461699743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3414826, -0.10453844)
+visible = false
+material_override = ExtResource("2_m6hqm")
+mesh = SubResource("CylinderMesh_m6fw0")
+script = ExtResource("2_vk503")
+
+[connection signal="timeout" from="HealTimer" to="." method="_on_heal_timer_timeout"]
