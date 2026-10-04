@@ -149,7 +149,7 @@ func handle_animation(direction: Vector3) -> void:
 
 	if abs(local_direction.z) > abs(local_direction.x):
 		if local_direction.z < 0:
-			animation_player.play("Run_Forward")
+			animation_player.play("Run_Forwards")
 		else:
 			animation_player.play("Run_Backwards")
 	else:

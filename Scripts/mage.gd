@@ -28,6 +28,7 @@ func handle_attack() -> void:
 		return
 	play_animation("Throw")
 	spawn_projectile()
+	$Attack.play()
 	can_attack = false
 	attack_timer.start(attack_cooldown)
 		

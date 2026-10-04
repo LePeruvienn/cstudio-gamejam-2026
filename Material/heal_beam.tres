@@ -1,3 +1,10 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://ci0eqt7erf3cu"]
 
+[ext_resource type="Shader" uid="uid://p23ne6cqkedq" path="res://Material/heal_beam.gdshader" id="1_syiau"]
+
 [resource]
+render_priority = 0
+shader = ExtResource("1_syiau")
+shader_parameter/beam_color = Color(0.2, 1, 0.1, 1)
+shader_parameter/speed = 2.0
+shader_parameter/emission_strength = 5.0

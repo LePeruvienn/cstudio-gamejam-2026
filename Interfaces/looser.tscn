@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c1lycls8bw1nj" path="res://Interfaces/death_info_ui.tscn" id="1_qdwha"]
 [ext_resource type="AudioStream" uid="uid://cu3imweh2ghw3" path="res://Sounds/loose/harpsichord_defeated.wav" id="2_nw14k"]
 [ext_resource type="AudioStream" uid="uid://dfuc7p2so72ds" path="res://Sounds/loose/harpsichord_positive_long.wav" id="3_ik48s"]
-[ext_resource type="Texture2D" uid="uid://de4slhyotqxug" path="res://Sprites/ui_avant_fin.png" id="4_alvn0"]
+[ext_resource type="Texture2D" uid="uid://ci3bf0evaedn6" path="res://ui_avant_fin.png" id="4_foa8g"]
 [ext_resource type="Texture2D" uid="uid://dxlsry83orlb5" path="res://Sprites/ui_game_over.png" id="5_3cmkp"]
 [ext_resource type="Texture2D" uid="uid://coi75qh4ds2mr" path="res://Sprites/black_screen.png" id="5_ik48s"]
 [ext_resource type="Script" uid="uid://b2r2fb6hkcx7k" path="res://Scenes/transition.gd" id="6_b4e2f"]
@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://b0qq5qsrij13p" path="res://Sounds/stone_push_long.wav" id="7_h63xo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xau3c"]
-texture = ExtResource("4_alvn0")
+texture = ExtResource("4_foa8g")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3cmkp"]
 texture = ExtResource("5_3cmkp")
@@ -89,7 +89,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/margin_left = 64
 theme_override_constants/margin_top = 95
-theme_override_constants/margin_right = 503
+theme_override_constants/margin_right = 730
 theme_override_constants/margin_bottom = -45
 
 [node name="DeathContractInterface" parent="Panel/ResultContainer/HBoxContainer" unique_id=2067919147 instance=ExtResource("1_qdwha")]
@@ -99,8 +99,8 @@ size_flags_horizontal = 1
 [node name="MarginContainer2" type="MarginContainer" parent="Panel/ResultContainer" unique_id=1179785438]
 layout_mode = 2
 theme_override_constants/margin_left = 200
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 405
+theme_override_constants/margin_top = 27
+theme_override_constants/margin_right = 112
 
 [node name="Button" type="Button" parent="Panel/ResultContainer/MarginContainer2" unique_id=72536785]
 layout_mode = 2

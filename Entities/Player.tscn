@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dy7jvua2yfwgr" path="res://Sounds/swipe.wav" id="4_2a4id"]
 [ext_resource type="PackedScene" uid="uid://bksv0oppteu46" path="res://Models/Player.glb" id="4_c7jvw"]
 [ext_resource type="AudioStream" uid="uid://xwop7gdiurfu" path="res://Sounds/Coin/coin.wav" id="5_nn0oq"]
+[ext_resource type="AudioStream" uid="uid://5r42bt28v64p" path="res://Sounds/PlayerAttack/slap.wav" id="5_ry37w"]
 [ext_resource type="AudioStream" uid="uid://iyobms3y3atv" path="res://Sounds/Coin/coin_2.wav" id="6_ry37w"]
 [ext_resource type="AudioStream" uid="uid://bpuubjgu3ebo0" path="res://Sounds/Coin/coin_3.wav" id="7_paumt"]
 [ext_resource type="AudioStream" uid="uid://b0oa36pvm6mob" path="res://Sounds/Coin/coin_4.wav" id="8_cfvty"]
@@ -3390,6 +3391,7 @@ script = ExtResource("1_xhfnw")
 grenade_scene = ExtResource("2_bkgf5")
 bullet_scene = ExtResource("3_kl0bm")
 melee_attack_sounds = Array[AudioStream]([ExtResource("4_2a4id")])
+damage_taken_sounds = Array[AudioStream]([ExtResource("5_ry37w")])
 healed_sounds = Array[AudioStream]([ExtResource("5_nn0oq"), ExtResource("6_ry37w"), ExtResource("7_paumt"), ExtResource("8_cfvty")])
 
 [node name="AudioStreamPlayers" type="Node3D" parent="." unique_id=1552016555]
