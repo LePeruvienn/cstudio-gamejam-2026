@@ -13,23 +13,32 @@
 [ext_resource type="PackedScene" uid="uid://cfxpox52bolx4" path="res://Enemies/Mage.tscn" id="6_frkhe"]
 [ext_resource type="Script" uid="uid://bjinnmvc12qr2" path="res://Scripts/game_ui.gd" id="7_1p5hy"]
 [ext_resource type="PackedScene" uid="uid://dnb0dwpg7tdye" path="res://Enemies/Healer.tscn" id="10_1p5hy"]
+[ext_resource type="PackedScene" uid="uid://dmx5imqjlln2w" path="res://Enemies/Slasher.tscn" id="10_2w5on"]
 [ext_resource type="Script" uid="uid://g3svsd8prvio" path="res://Scripts/location_manager.gd" id="11_grg3l"]
+[ext_resource type="Shader" uid="uid://cwt54escj3lc2" path="res://Material/fog.gdshader" id="15_h1m7h"]
+[ext_resource type="Script" uid="uid://jytooiaq7yhu" path="res://Scripts/fog_manager.gd" id="16_erwvk"]
+
+[sub_resource type="Resource" id="Resource_gxcmu"]
+script = ExtResource("4_4kpch")
+enemy_scene = ExtResource("10_2w5on")
+metadata/_custom_type_script = "uid://cc5tkqn26pkrw"
 
 [sub_resource type="Resource" id="Resource_frkhe"]
 script = ExtResource("4_4kpch")
 enemy_scene = ExtResource("10_1p5hy")
+chance = 30.0
 metadata/_custom_type_script = "uid://cc5tkqn26pkrw"
 
 [sub_resource type="Resource" id="Resource_p70al"]
 script = ExtResource("4_4kpch")
 enemy_scene = ExtResource("5_grg3l")
-chance = 60.0
+chance = 30.0
 metadata/_custom_type_script = "uid://cc5tkqn26pkrw"
 
 [sub_resource type="Resource" id="Resource_45d1s"]
 script = ExtResource("4_4kpch")
 enemy_scene = ExtResource("6_frkhe")
-chance = 40.0
+chance = 30.0
 metadata/_custom_type_script = "uid://cc5tkqn26pkrw"
 
 [sub_resource type="Curve3D" id="Curve3D_gjpho"]
@@ -58,6 +67,18 @@ sky = SubResource("Sky_fj7yv")
 [sub_resource type="BoxShape3D" id="BoxShape3D_grg3l"]
 size = Vector3(19.949738, 7.724121, 18.847351)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1p5hy"]
+shader = ExtResource("15_h1m7h")
+shader_parameter/fog_color = Color(0.55, 0.65, 0.7, 1)
+shader_parameter/fog_density = 0.35
+shader_parameter/fog_start = 0.0
+shader_parameter/fog_end = 1.0
+shader_parameter/use_noise = true
+shader_parameter/noise_strength = 0.2
+shader_parameter/noise_scale = 2.0
+shader_parameter/noise_speed = 0.2
+shader_parameter/fog_contrast = 1.0
+
 [node name="Node3D" type="Node3D" unique_id=1646527342]
 
 [node name="GameManager" type="Node3D" parent="." unique_id=1168028380]
@@ -79,7 +100,7 @@ fov = 40.0
 
 [node name="EnemySpawner" type="Node3D" parent="." unique_id=939323717]
 script = ExtResource("3_bmxlf")
-enemy_spawn_configs = Array[ExtResource("4_4kpch")]([SubResource("Resource_frkhe"), SubResource("Resource_p70al"), SubResource("Resource_45d1s")])
+enemy_spawn_configs = Array[ExtResource("4_4kpch")]([SubResource("Resource_gxcmu"), SubResource("Resource_frkhe"), SubResource("Resource_p70al"), SubResource("Resource_45d1s")])
 
 [node name="EnemyTimer" type="Timer" parent="EnemySpawner" unique_id=1027248567]
 autostart = true
@@ -140,7 +161,22 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LocationManager/BotLeftArea" unique_id=1632706552]
 shape = SubResource("BoxShape3D_grg3l")
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1024979472]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1024979472]
 script = ExtResource("7_1p5hy")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1094262380]
+material = SubResource("ShaderMaterial_1p5hy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="FogManager" type="Node3D" parent="." unique_id=1033319890]
+script = ExtResource("16_erwvk")
+fog_density_enabled = 0.849
+noise_strength = 0.524
+noise_speed = 1.196
 
 [connection signal="timeout" from="EnemySpawner/EnemyTimer" to="EnemySpawner" method="_on_enemy_timer_timeout"]

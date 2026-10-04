@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dmx5imqjlln2w"]
+
+[ext_resource type="Script" uid="uid://d0k1q5unx7gli" path="res://Scripts/slasher.gd" id="1_gxcmu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rwas"]
+albedo_color = Color(0.87920535, 0.40328974, 1.347661e-06, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0rwas"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0rwas"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0rwas"]
+size = Vector3(1, 1.9999999, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tt7e2"]
+bg_color = Color(1, 0, 0.039215688, 0.6745098)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tt7e2"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0kn8i"]
+size = Vector3(1.0960846, 1, 1.5148926)
+
+[node name="Slasher" type="CharacterBody3D" unique_id=1833152759]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_gxcmu")
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=1617926624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_0rwas")
+mesh = SubResource("CapsuleMesh_0rwas")
+
+[node name="Eyes" type="MeshInstance3D" parent="." unique_id=1819524315]
+transform = Transform3D(0.50967765, 0, 0, 0, -0.16133729, 0, 0, 0, 0.34188923, 0.0051529408, 1.2974364, -0.40397352)
+mesh = SubResource("BoxMesh_0rwas")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=205765014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99999994, 0)
+shape = SubResource("BoxShape3D_0rwas")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=502581390]
+transparent_bg = true
+size = Vector2i(100, 25)
+
+[node name="ProgressBar" type="ProgressBar" parent="SubViewport" unique_id=450526275]
+offset_left = -1.0
+offset_right = 109.0
+offset_bottom = 27.0
+scale = Vector2(1, 1.0067551)
+theme_override_styles/fill = SubResource("StyleBoxFlat_tt7e2")
+value = 50.0
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1291959455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2244587, 0)
+billboard = 1
+transparent = false
+texture = SubResource("ViewportTexture_tt7e2")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1915252520]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1652756479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03769684, 1.0842552, -0.18154418)
+shape = SubResource("BoxShape3D_0kn8i")
+debug_color = Color(0.9839038, 0, 0.35305634, 0.41960785)
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1957966675]
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

@@ -14,3 +14,4 @@ func show_clock_quarter(p_quarter: DeathData.ClockState) -> void:
 func set_location_name_to(location: DeathData.Location, is_correct: bool = false) -> void:
 	location_label.text = DeathData.LOCATION_NAMES[location]
 	location_label.modulate = Color.RED if is_correct else Color.WHITE
+		

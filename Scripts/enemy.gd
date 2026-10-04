@@ -26,6 +26,7 @@ func initialize(start_position: Vector3, player_instance: Player):
 	look_at_from_position(start_position, player.position, Vector3.UP)
 
 func _ready() -> void:
+	health = max_health
 	update_progress_bar()
 
 func _physics_process(delta: float) -> void:

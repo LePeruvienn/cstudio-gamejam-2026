@@ -24,3 +24,7 @@ func update_player_location():
 	var target_location := game_manager.current_contract.location
 	var location := location_manager.get_current_location(player)
 	player_hud.set_location_name_to(location, location == target_location)
+	if location == DeathData.Location.TOP_LEFT:
+		game_manager.fog_manager.set_fog_enabled(true)
+	else:
+		game_manager.fog_manager.set_fog_enabled(false)

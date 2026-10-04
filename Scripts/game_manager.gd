@@ -1,9 +1,10 @@
 extends Node3D
 class_name GameManager
 
-@onready var canva_layer: CanvasLayer = $"../HUD"
+@onready var canva_layer: CanvasLayer = $"../CanvasLayer"
 @onready var enemy_spawner: EnemySpawner = $"../EnemySpawner"
 @onready var location_manager: LocationManager = $"../LocationManager"
+@onready var fog_manager: FogManager = $"../FogManager"
 
 @export var menu_scene: PackedScene
 @export var player_hud_scene: PackedScene
