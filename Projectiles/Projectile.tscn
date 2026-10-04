@@ -1,40 +1,23 @@
 [gd_scene format=3 uid="uid://bexqxstavo0in"]
 
 [ext_resource type="Script" uid="uid://d14mgcsidpwb" path="res://Scripts/projectile.gd" id="1_qnq6o"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnq6o"]
-albedo_color = Color(4.813075e-07, 0.7269316, 0.74901384, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_qnq6o"]
-size = Vector3(2.675537, 2.220459, 0.7246094)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6g8uh"]
-albedo_color = Color(0, 0.40071338, 0.8465196, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_6g8uh"]
+[ext_resource type="PackedScene" uid="uid://uh4wtw7pryfg" path="res://Models/Lance.glb" id="2_i710n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6g8uh"]
-size = Vector3(1, 1, 0.87939453)
+size = Vector3(1, 1, 0.9460449)
 
 [node name="Area3D" type="Area3D" unique_id=503201559]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_qnq6o")
 
+[node name="Lance" parent="." unique_id=1852149682 instance=ExtResource("2_i710n")]
+transform = Transform3D(-1.8, 0, -1.57361e-07, 0, 1.8, 0, 1.57361e-07, 0, -1.8, 0, 0, 0.31217623)
+
 [node name="Mesh" type="Node3D" parent="." unique_id=1385226503]
 
-[node name="Nose" type="MeshInstance3D" parent="Mesh" unique_id=1619512589]
-transform = Transform3D(-0.062071715, 0, 0, 0, 0.075293384, 0, 0, 0, 0.26846007, -0.0012350697, -0.0028400458, -1.0112472)
-material_override = SubResource("StandardMaterial3D_qnq6o")
-mesh = SubResource("BoxMesh_qnq6o")
-
-[node name="Body" type="MeshInstance3D" parent="Mesh" unique_id=1990905714]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, -0.5023023)
-material_override = SubResource("StandardMaterial3D_6g8uh")
-mesh = SubResource("BoxMesh_6g8uh")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1616861276]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 1.25, 0, 0, -0.5524994)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 1.25, 0, 0, -0.5941559)
 shape = SubResource("BoxShape3D_6g8uh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
