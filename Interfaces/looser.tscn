@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://co85esdlolb42" path="res://Scripts/looser_screen.gd" id="1_3odii"]
 [ext_resource type="PackedScene" uid="uid://c1lycls8bw1nj" path="res://Interfaces/death_info_ui.tscn" id="1_qdwha"]
+[ext_resource type="AudioStream" uid="uid://cu3imweh2ghw3" path="res://Sounds/loose/harpsichord_defeated.wav" id="2_nw14k"]
+[ext_resource type="AudioStream" uid="uid://dfuc7p2so72ds" path="res://Sounds/loose/harpsichord_positive_long.wav" id="3_ik48s"]
 
 [node name="Looser_screen" type="Control" unique_id=1260286148]
 layout_mode = 3
@@ -11,6 +13,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3odii")
+loose_sound = ExtResource("2_nw14k")
+win_sound = ExtResource("3_ik48s")
 
 [node name="Panel" type="Panel" parent="." unique_id=1049658511]
 layout_mode = 1
@@ -75,5 +79,7 @@ theme_override_constants/margin_right = 200
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Continuer"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=170609800]
 
 [connection signal="pressed" from="Panel/VBoxContainer/MarginContainer2/Button" to="." method="_on_button_pressed"]

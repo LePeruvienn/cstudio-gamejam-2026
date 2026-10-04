@@ -2,7 +2,6 @@ extends CharacterBody3D
 class_name Enemy
 
 @onready var audio_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
-@onready var body_mesh: MeshInstance3D = $Body
 @onready var progress_bar: ProgressBar = $SubViewport/ProgressBar
 
 @export_category("Sounds")
