@@ -104,7 +104,7 @@ max_health = 30
 [node name="allie" parent="." unique_id=1471702209 instance=ExtResource("5_idjxt")]
 transform = Transform3D(-1.5, 0, -1.3113416e-07, 0, 1.5, 0, 1.3113416e-07, 0, -1.5, 0, 0, 0)
 
-[node name="Skeleton3D" parent="allie/Armature_001" parent_id_path=PackedInt32Array(1471702209, 1194912682) index="0" unique_id=88999276]
+[node name="Skeleton3D" parent="allie/Armature_001" parent_id_path=PackedInt32Array(1471702209, 229786306) index="0" unique_id=317883467]
 bones/0/position = Vector3(0, -2.0747082, 0)
 bones/2/rotation = Quaternion(1.6623139e-06, 1.733979e-08, 0.99589187, -0.0905514)
 bones/3/rotation = Quaternion(0.12369351, 0.7414631, -0.6549219, -0.07752232)
@@ -115,7 +115,7 @@ bones/8/rotation = Quaternion(0.071665645, 0.7675295, -0.49747273, 0.3978487)
 bones/9/rotation = Quaternion(0.040450998, -0.6760222, 0.5558712, 0.48204255)
 bones/10/rotation = Quaternion(-3.8118958e-07, -1.1453376e-06, -0.9709171, 0.239416)
 
-[node name="AnimationPlayer" parent="allie" index="1" unique_id=941566185]
+[node name="AnimationPlayer" parent="allie" index="1" unique_id=430829920]
 libraries/ = SubResource("AnimationLibrary_n71wq")
 autoplay = &"idle"
 

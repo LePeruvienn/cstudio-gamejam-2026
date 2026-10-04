@@ -1,6 +1,8 @@
 extends CharacterBody3D
 class_name Player
 
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
 @onready var audio_attack_player: AudioStreamPlayer3D = $AudioStreamPlayers/AttackPlayer
 @onready var audio_damage_taken_player: AudioStreamPlayer3D = $AudioStreamPlayers/DamageTakenPlayer
 @onready var audio_heal_player: AudioStreamPlayer3D = $AudioStreamPlayers/HealPlayer
@@ -51,6 +53,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y -= gravity * delta
 
 	melee_attack_timer = maxf(melee_attack_timer - delta, 0.0)
 	bullet_attack_timer = maxf(bullet_attack_timer - delta, 0.0)
