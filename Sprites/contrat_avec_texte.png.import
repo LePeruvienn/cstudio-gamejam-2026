@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmksxx38yubvo"
-path="res://.godot/imported/conrat.png-c6b30ccd95bc156c683704ffb7c94a1f.ctex"
+uid="uid://yxu4arl7r7w0"
+path="res://.godot/imported/contrat_avec_texte.png-32d6eec0cc3357944a8ae318f29a6dbe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/conrat.png"
-dest_files=["res://.godot/imported/conrat.png-c6b30ccd95bc156c683704ffb7c94a1f.ctex"]
+source_file="res://Sprites/contrat_avec_texte.png"
+dest_files=["res://.godot/imported/contrat_avec_texte.png-32d6eec0cc3357944a8ae318f29a6dbe.ctex"]
 
 [params]
 

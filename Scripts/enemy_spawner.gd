@@ -1,6 +1,7 @@
 extends Node3D
 class_name EnemySpawner
 
+@onready var spawn_timer: Timer = $SpawnTimer
 @onready var game_manager: GameManager = %GameManager
 @onready var enemy_spawn_location: PathFollow3D = $SpawnPath/PathFollow3D
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ueoax2g8pr1v"
-path="res://.godot/imported/herbe_aaaaah1.glb-a95891634c05d4007de9e6fb836ba456.scn"
+uid="uid://b03hg6iaph6u0"
+path="res://.godot/imported/map.glb-3df73ac882239d87eaf765cad8fa46d1.scn"
 
 [deps]
 
-source_file="res://Models/herbe_aaaaah1.glb"
-dest_files=["res://.godot/imported/herbe_aaaaah1.glb-a95891634c05d4007de9e6fb836ba456.scn"]
+source_file="res://World/map.glb"
+dest_files=["res://.godot/imported/map.glb-3df73ac882239d87eaf765cad8fa46d1.scn"]
 
 [params]
 

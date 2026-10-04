@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dl74hffkhuo2v"]
 
 [ext_resource type="Script" uid="uid://s7xv6lydekpt" path="res://Scripts/death_item.gd" id="1_lmwve"]
+[ext_resource type="PackedScene" uid="uid://dpx33ybxo872l" path="res://Interfaces/BonusLabel.tscn" id="2_wr3x8"]
 
 [node name="DeathContractInterface" type="Control" unique_id=2067919147]
 layout_mode = 3
@@ -99,7 +100,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 21
 text = "???"
 
-[node name="Space" type="Control" parent="Panel/MarginContainer/VBoxContainer" unique_id=1509598409]
+[node name="BonusLabel" parent="Panel/MarginContainer/VBoxContainer" unique_id=1615723424 instance=ExtResource("2_wr3x8")]
 layout_mode = 2
 size_flags_vertical = 3
 
