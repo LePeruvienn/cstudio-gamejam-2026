@@ -1,17 +1,82 @@
 [gd_scene format=3 uid="uid://dnb0dwpg7tdye"]
 
 [ext_resource type="Script" uid="uid://dmefp6dmwe0pt" path="res://Scripts/healer.gd" id="1_m6fw0"]
+[ext_resource type="PackedScene" uid="uid://cljxej5cs167k" path="res://Models/Allie.glb" id="2_aspq0"]
 [ext_resource type="Material" uid="uid://ci0eqt7erf3cu" path="res://Material/heal_beam.tres" id="2_m6hqm"]
 [ext_resource type="Script" uid="uid://ghuflp2pu1ow" path="res://Scripts/beam.gd" id="2_vk503"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rwas"]
-albedo_color = Color(0.20173839, 0.6727177, 5.7756904e-07, 1)
+[sub_resource type="Animation" id="Animation_aspq0"]
+resource_name = "idle"
+length = 0.41666666
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature_001/Skeleton3D:Bone.011")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -2.0747082, 0, 0.2, 1, 0, -2.0747082, 0, 0.23333333, 1, 0, -1.6464388, 0, 0.41666666, 1, 0, -1.6464388, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature_001/Skeleton3D:Bone.001")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -1.6623138e-06, -1.733978e-08, -0.99589187, 0.0905514, 0.2, 1, -1.6623137e-06, -1.7339778e-08, -0.9958918, 0.0905514, 0.23333333, 1, 1.6134206e-06, 4.005843e-07, 0.9898993, 0.14177258, 0.41666666, 1, 1.6134206e-06, 4.005843e-07, 0.9898993, 0.14177258)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature_001/Skeleton3D:Bone.008")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.1236935, -0.7414631, 0.6549219, 0.07752232)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature_001/Skeleton3D:Bone.009")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.27946794, -0.10083838, -0.778035, 0.5535259, 0.2, 1, -0.2794679, -0.10083836, -0.7780349, 0.55352587, 0.23333333, 1, -0.30721864, -0.05683142, -0.7502406, 0.5826885, 0.41666666, 1, -0.30721864, -0.056831423, -0.7502406, 0.5826885)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature_001/Skeleton3D:Bone.010")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.37008953, 0.23671462, 0.61563236, 0.6542146, 0.2, 1, 0.37008953, 0.23671463, 0.61563236, 0.6542146, 0.23333333, 1, 0.18552743, 0.12141603, 0.5070872, 0.83288676, 0.41666666, 1, 0.18552743, 0.12141603, 0.5070872, 0.83288676)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("Armature_001/Skeleton3D:Bone.002")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 1.381138e-06, -3.3045737e-07, 0.9899349, 0.14152339, 0.2, 1, 1.381138e-06, -3.304574e-07, 0.989935, 0.14152339, 0.23333333, 1, -1.2664618e-06, 6.4251026e-07, -0.9957118, 0.09250985, 0.41666666, 1, -1.2664618e-06, 6.4251026e-07, -0.9957118, 0.09250985)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = true
+tracks/6/enabled = true
+tracks/6/path = NodePath("Armature_001/Skeleton3D:Bone.004")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0.071665645, 0.7675295, -0.4974727, 0.39784864, 0.2, 1, 0.071665645, 0.7675295, -0.4974727, 0.39784867, 0.23333333, 1, 0.29567325, 0.31668785, -0.85807306, 0.2756751, 0.41666666, 1, 0.29567325, 0.31668785, -0.85807306, 0.2756751)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = true
+tracks/7/enabled = true
+tracks/7/path = NodePath("Armature_001/Skeleton3D:Bone.005")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0.040451013, -0.6760222, 0.55587125, 0.48204252, 0.2, 1, 0.040451013, -0.6760222, 0.55587125, 0.48204255, 0.23333333, 1, 0.34798205, -0.14242607, 0.8635471, 0.33602044, 0.41666666, 1, 0.34798205, -0.14242607, 0.8635471, 0.33602044)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = true
+tracks/8/enabled = true
+tracks/8/path = NodePath("Armature_001/Skeleton3D:Bone.006")
+tracks/8/interp = 0
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, -3.811896e-07, -1.1453376e-06, -0.9709171, 0.23941603)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_0rwas"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_0rwas"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_vk503"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tbcmf"]
+_data = {
+&"idle": SubResource("Animation_aspq0")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0rwas"]
 size = Vector3(1, 1.9999999, 1)
@@ -32,24 +97,29 @@ collision_mask = 7
 script = ExtResource("1_m6fw0")
 max_health = 30
 
+[node name="Allie2" parent="." unique_id=949007265 instance=ExtResource("2_aspq0")]
+transform = Transform3D(-1.6, 0, -1.3987645e-07, 0, 1.6, 0, 1.3987645e-07, 0, -1.6, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Allie2/Armature_001" parent_id_path=PackedInt32Array(949007265, 801843021) index="0" unique_id=1836333130]
+bones/0/position = Vector3(0, -2.0747082, 0)
+bones/2/rotation = Quaternion(1.6623139e-06, 1.733979e-08, 0.99589187, -0.0905514)
+bones/3/rotation = Quaternion(0.12369351, 0.7414631, -0.6549219, -0.07752232)
+bones/4/rotation = Quaternion(-0.27946794, -0.10083839, -0.77803504, 0.5535259)
+bones/5/rotation = Quaternion(0.37008956, 0.23671466, 0.6156324, 0.6542146)
+bones/6/rotation = Quaternion(1.381138e-06, -3.3045737e-07, 0.9899349, 0.14152339)
+bones/8/rotation = Quaternion(0.071665645, 0.7675295, -0.49747273, 0.3978487)
+bones/9/rotation = Quaternion(0.040450998, -0.6760222, 0.5558712, 0.48204255)
+bones/10/rotation = Quaternion(-3.8118958e-07, -1.1453376e-06, -0.9709171, 0.239416)
+
+[node name="AnimationPlayer" parent="Allie2" index="1" unique_id=1368856089]
+libraries/ = SubResource("AnimationLibrary_tbcmf")
+autoplay = &"idle"
+
 [node name="Marker3D" type="Marker3D" parent="." unique_id=1637488627]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9871565, -0.79006124)
 
 [node name="HealTimer" type="Timer" parent="." unique_id=556107115]
 wait_time = 0.5
-
-[node name="Body" type="MeshInstance3D" parent="." unique_id=1617926624]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-material_override = SubResource("StandardMaterial3D_0rwas")
-mesh = SubResource("CapsuleMesh_0rwas")
-
-[node name="Eyes" type="MeshInstance3D" parent="." unique_id=1819524315]
-transform = Transform3D(0.50967765, 0, 0, 0, -0.16133729, 0, 0, 0, 0.34188923, 0.0051529408, 1.2974364, -0.40397352)
-mesh = SubResource("BoxMesh_0rwas")
-
-[node name="Hat" type="MeshInstance3D" parent="." unique_id=2005522792]
-transform = Transform3D(1, 0, 0, 0, 0.23331927, 0, 0, 0, 1.0030195, 0, 1.699477, -0.045144565)
-mesh = SubResource("BoxMesh_vk503")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=205765014]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99999994, 0)
@@ -81,3 +151,5 @@ mesh = SubResource("CylinderMesh_m6fw0")
 script = ExtResource("2_vk503")
 
 [connection signal="timeout" from="HealTimer" to="." method="_on_heal_timer_timeout"]
+
+[editable path="Allie2"]
