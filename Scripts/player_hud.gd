@@ -4,6 +4,10 @@ class_name PlayerHUD
 @onready var life_bar: LifeBar = $LifeBar
 @onready var clock: Clock = $Clock
 @onready var location_label: Label = $LocationLabel
+@onready var killed_by_label: Label = $KilledByLabel
+
+func set_killed_by(p_killed_by: DeathData.KilledBy) -> void:
+	killed_by_label.text = DeathData.KILLED_BY_NAMES[p_killed_by]
 
 func set_life_bar(p_value: int, p_max_value: int):
 	life_bar.set_value(p_value, p_max_value)

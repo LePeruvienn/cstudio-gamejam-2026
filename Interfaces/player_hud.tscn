@@ -51,6 +51,19 @@ scale = Vector2(1.0130919, 1)
 theme_override_font_sizes/font_size = 24
 text = "Location Name"
 
+[node name="KilledByLabel" type="Label" parent="." unique_id=1077758857]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -17.0
+offset_right = 176.0
+offset_bottom = 17.0
+grow_vertical = 2
+scale = Vector2(1.0130919, 1)
+theme_override_font_sizes/font_size = 24
+text = "Gnome"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1700687159]
 layout_mode = 0
 offset_right = 40.0

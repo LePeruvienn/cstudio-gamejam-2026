@@ -81,6 +81,7 @@ func start_round() -> void:
 	player_instance.apply_bonus(current_bonus)
 	enemy_spawner.set_active(true)
 	player_hud_instance.show_clock_quarter(current_contract.clock_state)
+	player_hud_instance.set_killed_by(current_contract.killed_by)
 	# Wait player to die, and then get all the data
 	var s_killed_by: DeathData.KilledBy = await player_instance.death
 	var death_data: DeathData = DeathData.new(
