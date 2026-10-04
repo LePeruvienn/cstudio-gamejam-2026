@@ -23,8 +23,8 @@ func handle_attack() -> void:
 func make_attack() -> void:
 	var targets = attack_area.get_overlapping_bodies()
 	for target in targets:
-		if target.has_method("take_damage"):
-			target.take_damage(damage)
+		if target.has_method("player_take_damage"):
+			target.player_take_damage(damage, DeathData.KilledBy.ENEMY_MELEE)
 			
 func _on_attack_timer_timeout() -> void:
 	can_attack = true

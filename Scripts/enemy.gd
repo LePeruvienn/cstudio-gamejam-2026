@@ -40,7 +40,6 @@ func move_towards_player(delta: float) -> void:
 	if not is_instance_valid(player):
 		return
 	var direction: Vector3 = (player.position - position).normalized()
-	var target_angle: float = atan2(-direction.x, -direction.z)
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
 	move_and_slide()

@@ -6,7 +6,7 @@ class_name Player
 @onready var melee_area: Area3D = $Area3D
 
 @export_category("Statistics")
-@export var max_health: int = 100
+@export var max_health: int = 500
 @export var speed: float = 5.0
 @export var rotation_speed: float = 5.0
 @export var damage: int = 10
@@ -20,10 +20,14 @@ var is_dead: bool = false
 
 var mouse_world_position: Vector3 = Vector3.ZERO
 
+signal death(killed_by: DeathData.KilledBy)
+
 func ready():
 	$Main/AnimationPlayer.set_current_animation("idling")
 
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		return
 	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction: Vector3 =  Vector3(input_dir.x, 0, input_dir.y).normalized()
 	update_mouse_world_position()
@@ -34,15 +38,15 @@ func _physics_process(delta: float) -> void:
 	handle_grenade()
 	handle_bullet()
 
-func take_damage(damage_amount: int) -> void:
+func player_take_damage(damage_amount: int, p_killed_by: DeathData.KilledBy) -> void:
 	health -= damage_amount
 	if health <= 0:
 		health = 0
 		is_dead = true
-		die()
+		kill(p_killed_by)
 		
-func die() -> void:
-	print("I DIEED")
+func kill(p_killed_by: DeathData.KilledBy) -> void:
+	death.emit(p_killed_by)
 
 func handle_movement(direction: Vector3) -> void:
 	if direction:
@@ -79,6 +83,7 @@ func handle_grenade() -> void:
 	grenade.position = bullet_origin.global_position
 	grenade.rotation = rotation
 	grenade.throw()
+	grenade.add_to_group("projectiles")
 	
 func handle_bullet() -> void:
 	if not Input.is_action_just_pressed("range_attack"):
@@ -86,6 +91,7 @@ func handle_bullet() -> void:
 	var bullet: Bullet = bullet_scene.instantiate()
 	get_tree().root.add_child(bullet)
 	bullet.global_transform = bullet_origin.global_transform
+	bullet.add_to_group("projectiles")
 	
 func handle_melee_attack() -> void:
 	if not Input.is_action_just_pressed("melee_attack"):

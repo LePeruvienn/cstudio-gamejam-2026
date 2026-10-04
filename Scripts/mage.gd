@@ -36,3 +36,4 @@ func spawn_projectile() -> void:
 	get_tree().root.add_child(projectile)
 	projectile.global_position = projectile_origin.global_position
 	projectile.initialize(player, projectile_speed, attack_damage)
+	projectile.add_to_group("projectiles")

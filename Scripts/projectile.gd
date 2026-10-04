@@ -36,6 +36,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body == target:
-		if target.has_method("take_damage"):
-			target.take_damage(damage)
+		if target.has_method("player_take_damage"):
+			target.player_take_damage(damage, DeathData.KilledBy.ENEMY_RANGE)
 		queue_free()

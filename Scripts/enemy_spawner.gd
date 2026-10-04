@@ -1,7 +1,7 @@
 extends Node3D
 class_name EnemySpawner
 
-@onready var player: Node3D = %Player
+@onready var game_manager: GameManager = %GameManager
 @onready var enemy_spawn_location: PathFollow3D = $SpawnPath/PathFollow3D
 
 @export var enemy_spawn_configs: Array[EnemySpawnConfig] = []
@@ -14,16 +14,19 @@ func set_active(p_is_active: bool) -> void:
 func kill_all_enemies() -> void:
 	for enemy in get_tree().get_nodes_in_group("enemies"):
 		enemy.queue_free()
+	for projectile in get_tree().get_nodes_in_group("projectiles"):
+		projectile.queue_free()
 
 func _on_enemy_timer_timeout() -> void:
 	if is_active:
 		spawn_enemy()
 
 func spawn_enemy() -> void:
-	var position: Vector3 = get_random_position()
+	var enemy_position: Vector3 = get_random_position()
 	var enemy_scene: PackedScene = get_random_enemy_scene()
 	var enemy: Node3D = enemy_scene.instantiate()
-	enemy.initialize(position, player)
+	var player: Player = game_manager.player_instance
+	enemy.initialize(enemy_position, player)
 	get_tree().root.add_child(enemy)
 	enemy.add_to_group("enemies")
 

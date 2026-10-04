@@ -9,6 +9,8 @@ class_name DeathChooser
 	
 var contracts: Array[DeathData] = []
 
+signal choosed_contract(contract: DeathData)
+
 func _ready() -> void:
 	contracts.push_back(DeathData.create_random())
 	contracts.push_back(DeathData.create_random())
@@ -21,7 +23,7 @@ func update_ui() -> void:
 		contract_ui.set_from_death_condition(contracts[i])
 		
 func on_contract_choosed(p_contract: DeathData) -> void:
-	print(p_contract)
+	choosed_contract.emit(p_contract)
 		
 func _on_death_contract_interface_choice_made(contract: DeathData) -> void:
 	on_contract_choosed(contract)

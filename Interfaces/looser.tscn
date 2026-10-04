@@ -40,16 +40,17 @@ theme_override_constants/margin_bottom = 64
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer" unique_id=1900225770]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 32
 text = "Pas mal pour un vaut rien ...
 As tu respecter le contrat ?"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1872530326]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer" unique_id=1107206357]
 layout_mode = 2
+size_flags_horizontal = 8
 theme_override_constants/margin_left = 64
 theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
@@ -57,20 +58,22 @@ theme_override_constants/margin_bottom = 64
 
 [node name="EndRoundMessage" type="Label" parent="Panel/VBoxContainer/HBoxContainer/MarginContainer" unique_id=920504008]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 32
 text = "Bien jouer !"
 
 [node name="DeathContractInterface" parent="Panel/VBoxContainer/HBoxContainer" unique_id=2067919147 instance=ExtResource("1_qdwha")]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 6
 
 [node name="MarginContainer2" type="MarginContainer" parent="Panel/VBoxContainer" unique_id=1179785438]
 layout_mode = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_right = 100
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 200
 
 [node name="Button" type="Button" parent="Panel/VBoxContainer/MarginContainer2" unique_id=72536785]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Texte qu'il faut mettre"
+theme_override_font_sizes/font_size = 32
+text = "Continuer"
+
+[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer2/Button" to="." method="_on_button_pressed"]

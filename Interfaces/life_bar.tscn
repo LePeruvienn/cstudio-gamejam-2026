@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bsbxvhh5rfgh1"]
+
+[ext_resource type="Script" uid="uid://bc72ht47bchuv" path="res://Scripts/life_bar.gd" id="1_66d5l"]
+[ext_resource type="Texture2D" uid="uid://b742cs6wjn3rq" path="res://Sprites/barre_de_vie.png" id="1_81w10"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_81w10"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_81w10"]
+bg_color = Color(0.5738746, 0, 0.12941995, 1)
+
+[node name="LifeBar" type="Control" unique_id=978350127]
+layout_mode = 3
+anchor_right = 0.62
+anchor_bottom = 0.41000003
+offset_right = -0.5999756
+offset_bottom = -0.2000122
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.67340446, 0.67340446)
+script = ExtResource("1_66d5l")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=962455136]
+layout_mode = 0
+offset_left = -627.99994
+offset_top = -319.99997
+offset_right = 12168.579
+offset_bottom = 4569.9995
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_81w10")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=2082842253]
+layout_mode = 0
+offset_left = -334.0
+offset_top = -113.0
+offset_right = 361.0
+offset_bottom = -82.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_81w10")
+theme_override_styles/fill = SubResource("StyleBoxFlat_81w10")
+value = 50.0
+show_percentage = false

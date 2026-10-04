@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddmg74pafh5gw"
-path="res://.godot/imported/Clock_Quarter_4.png-25be511a4d8331fd0d48310a1b57ae87.ctex"
+uid="uid://b742cs6wjn3rq"
+path="res://.godot/imported/barre_de_vie.png-78cba6207ac64d66f579bac480295e3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Clock_Quarter_4.png"
-dest_files=["res://.godot/imported/Clock_Quarter_4.png-25be511a4d8331fd0d48310a1b57ae87.ctex"]
+source_file="res://Sprites/barre_de_vie.png"
+dest_files=["res://.godot/imported/barre_de_vie.png-78cba6207ac64d66f579bac480295e3e.ctex"]
 
 [params]
 

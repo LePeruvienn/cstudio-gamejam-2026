@@ -8,7 +8,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 1.0
-offset_right = -911.0
+offset_right = -910.0
 offset_bottom = -437.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -18,10 +18,10 @@ script = ExtResource("1_lmwve")
 [node name="Panel" type="Panel" parent="." unique_id=2080093544]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
-offset_left = 1.0
-offset_top = -161.0
-offset_right = 354.13156
-offset_bottom = 154.0
+offset_left = -80.0
+offset_top = -146.0
+offset_right = 273.13156
+offset_bottom = 169.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=671803873]
 layout_mode = 1

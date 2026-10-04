@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcq5k4r4kgfre"
-path="res://.godot/imported/Clock_Needle.png-1c4f03bce40535767460868a185e19c5.ctex"
+uid="uid://co1ukqcaj2snd"
+path="res://.godot/imported/Clock_frame.png-7f4d94371f09310c71d1903731053436.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Clock_Needle.png"
-dest_files=["res://.godot/imported/Clock_Needle.png-1c4f03bce40535767460868a185e19c5.ctex"]
+source_file="res://Sprites/Clock/Clock_frame.png"
+dest_files=["res://.godot/imported/Clock_frame.png-7f4d94371f09310c71d1903731053436.ctex"]
 
 [params]
 

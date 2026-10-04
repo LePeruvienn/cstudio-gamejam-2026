@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckqphpu0fwc4o"
-path="res://.godot/imported/Clock_Glass.png-83a62f73b7461a88adac9538e6f1d7ad.ctex"
+uid="uid://dv8qe8rwnjyuo"
+path="res://.godot/imported/Clock_Quarter_3.png-d176975ba129bf0794162e1db26a3618.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Clock_Glass.png"
-dest_files=["res://.godot/imported/Clock_Glass.png-83a62f73b7461a88adac9538e6f1d7ad.ctex"]
+source_file="res://Sprites/Clock/Clock_Quarter_3.png"
+dest_files=["res://.godot/imported/Clock_Quarter_3.png-d176975ba129bf0794162e1db26a3618.ctex"]
 
 [params]
 

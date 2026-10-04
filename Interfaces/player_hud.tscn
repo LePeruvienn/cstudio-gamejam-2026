@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://mx8hr4lqwgfs" path="res://Scripts/player_hud.gd" id="1_mdn4p"]
 [ext_resource type="PackedScene" uid="uid://r7hnbkv0wkmw" path="res://Interfaces/Clock.tscn" id="2_ksjtj"]
+[ext_resource type="PackedScene" uid="uid://bsbxvhh5rfgh1" path="res://Interfaces/life_bar.tscn" id="3_wfghg"]
 
 [node name="PlayerHUD" type="Control" unique_id=1098777037]
 layout_mode = 3
@@ -13,52 +14,39 @@ grow_vertical = 2
 script = ExtResource("1_mdn4p")
 metadata/_edit_use_anchors_ = true
 
-[node name="LifeBar" type="ProgressBar" parent="." unique_id=589905765]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = -56.0
-offset_right = -30.0
-offset_bottom = -11.0
-grow_horizontal = 2
-grow_vertical = 0
-value = 50.0
-
-[node name="ReviveAmount" type="Label" parent="." unique_id=1653689096]
-layout_mode = 0
-offset_left = 17.0
-offset_top = 25.0
-offset_right = 337.0
-offset_bottom = 54.0
-text = "Nombre de réincarnation : "
-
-[node name="EnemyKilled" type="Label" parent="." unique_id=1012621658]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 55.0
-offset_right = 335.0
-offset_bottom = 84.0
-text = "Nombre d'enemies tués :"
-
-[node name="DeathCondition" type="Label" parent="." unique_id=935339518]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 1.0
-offset_top = 30.0
-offset_right = 133.0
-offset_bottom = 53.0
-grow_horizontal = 2
-text = "Se faire tuer par un ...."
-horizontal_alignment = 1
-
 [node name="Clock" parent="." unique_id=347518052 instance=ExtResource("2_ksjtj")]
 layout_mode = 1
-offset_left = 531.0
-offset_top = 137.0
-offset_right = 531.0
-offset_bottom = 137.0
-scale = Vector2(0.11406085, 0.11406085)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+offset_left = -138.0
+offset_top = 135.0
+offset_right = -138.0
+offset_bottom = 135.0
+grow_horizontal = 0
+grow_vertical = 1
+scale = Vector2(0.09, 0.09)
+
+[node name="LifeBar" parent="." unique_id=978350127 instance=ExtResource("3_wfghg")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_vertical = 0
+
+[node name="LocationLabel" type="Label" parent="." unique_id=2009246747]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.5
+offset_right = 58.5
+offset_bottom = 23.0
+grow_horizontal = 2
+scale = Vector2(1.0130919, 1)
+theme_override_font_sizes/font_size = 24
+text = "Location Name"

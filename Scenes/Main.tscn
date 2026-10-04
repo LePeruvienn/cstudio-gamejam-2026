@@ -1,12 +1,17 @@
 [gd_scene format=3 uid="uid://c3hltmpfo2agj"]
 
 [ext_resource type="Script" uid="uid://ltjdr6nuvsoa" path="res://Scripts/game_manager.gd" id="1_vy5pj"]
+[ext_resource type="PackedScene" uid="uid://bkvoubks8y664" path="res://Interfaces/player_hud.tscn" id="2_4kpch"]
+[ext_resource type="PackedScene" uid="uid://dci05pyf3oddo" path="res://Interfaces/looser.tscn" id="2_50glp"]
+[ext_resource type="PackedScene" uid="uid://d5hpgqlcmgga" path="res://Interfaces/choose_death.tscn" id="2_bmxlf"]
 [ext_resource type="Script" uid="uid://c6peeeeku06lj" path="res://Scripts/camera_target.gd" id="2_vy5pj"]
 [ext_resource type="Script" uid="uid://bvmjqxfnmi6x6" path="res://Scripts/enemy_spawner.gd" id="3_bmxlf"]
 [ext_resource type="Script" uid="uid://cc5tkqn26pkrw" path="res://Scripts/enemy_spawn_config.gd" id="4_4kpch"]
+[ext_resource type="PackedScene" uid="uid://cspapb50px2lj" path="res://Entities/Player.tscn" id="5_4kpch"]
 [ext_resource type="PackedScene" uid="uid://by8ffjiaxaeb0" path="res://Enemies/Melee.tscn" id="5_grg3l"]
 [ext_resource type="PackedScene" uid="uid://cfxpox52bolx4" path="res://Enemies/Mage.tscn" id="6_frkhe"]
 [ext_resource type="Script" uid="uid://bjinnmvc12qr2" path="res://Scripts/game_ui.gd" id="7_1p5hy"]
+[ext_resource type="Script" uid="uid://g3svsd8prvio" path="res://Scripts/location_manager.gd" id="11_grg3l"]
 
 [sub_resource type="Resource" id="Resource_p70al"]
 script = ExtResource("4_4kpch")
@@ -43,8 +48,18 @@ sky = SubResource("Sky_fj7yv")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f3sb7"]
 
-[node name="GameManager" type="Node3D" unique_id=1168028380]
+[sub_resource type="BoxShape3D" id="BoxShape3D_grg3l"]
+size = Vector3(19.949738, 7.724121, 18.847351)
+
+[node name="Node3D" type="Node3D" unique_id=1646527342]
+
+[node name="GameManager" type="Node3D" parent="." unique_id=1168028380]
+unique_name_in_owner = true
 script = ExtResource("1_vy5pj")
+player_hud_scene = ExtResource("2_4kpch")
+choose_contract_scene = ExtResource("2_bmxlf")
+looser_scene = ExtResource("2_50glp")
+player_scene = ExtResource("5_4kpch")
 
 [node name="CameraTarget" type="Node3D" parent="." unique_id=1955040109]
 transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 0, 0)
@@ -85,6 +100,37 @@ mesh = SubResource("BoxMesh_gv5m4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground" unique_id=1743996998]
 transform = Transform3D(50, 0, 0, 0, 0.5, 0, 0, 0, 50, 0, -0.25, 0)
 shape = SubResource("BoxShape3D_f3sb7")
+
+[node name="LocationManager" type="Node3D" parent="." unique_id=585348916]
+script = ExtResource("11_grg3l")
+
+[node name="TopRightArea" type="Area3D" parent="LocationManager" unique_id=882555862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.058567, 0, -13.363838)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LocationManager/TopRightArea" unique_id=1705756203]
+shape = SubResource("BoxShape3D_grg3l")
+
+[node name="TopLeftArea" type="Area3D" parent="LocationManager" unique_id=552337005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.731234, 0, -13.363838)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LocationManager/TopLeftArea" unique_id=1821910904]
+shape = SubResource("BoxShape3D_grg3l")
+
+[node name="BotRightArea" type="Area3D" parent="LocationManager" unique_id=1216480195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.731234, 0, 11.822527)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LocationManager/BotRightArea" unique_id=1655285521]
+shape = SubResource("BoxShape3D_grg3l")
+
+[node name="BotLeftArea" type="Area3D" parent="LocationManager" unique_id=738390198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.058567, 0, 11.921574)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LocationManager/BotLeftArea" unique_id=1632706552]
+shape = SubResource("BoxShape3D_grg3l")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1024979472]
 script = ExtResource("7_1p5hy")

@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://r7hnbkv0wkmw"]
 
-[ext_resource type="Script" uid="uid://cn7begbh38ggh" path="res://Interfaces/clock.gd" id="1_ists2"]
-[ext_resource type="Texture2D" uid="uid://ckqphpu0fwc4o" path="res://Sprites/Clock_Glass.png" id="1_t8ofn"]
-[ext_resource type="Texture2D" uid="uid://ds6u04ejeucdr" path="res://Sprites/Clock_Quarter_1.png" id="2_ists2"]
-[ext_resource type="Texture2D" uid="uid://dnjmkf275try2" path="res://Sprites/Clock_Quarter_2.png" id="3_bhbm8"]
-[ext_resource type="Texture2D" uid="uid://dv8qe8rwnjyuo" path="res://Sprites/Clock_Quarter_3.png" id="4_e52sr"]
-[ext_resource type="Texture2D" uid="uid://ddmg74pafh5gw" path="res://Sprites/Clock_Quarter_4.png" id="5_2lqih"]
-[ext_resource type="Texture2D" uid="uid://co1ukqcaj2snd" path="res://Sprites/Clock_frame.png" id="6_26qxk"]
-[ext_resource type="Texture2D" uid="uid://dcq5k4r4kgfre" path="res://Sprites/Clock_Needle.png" id="7_vpvg2"]
+[ext_resource type="Script" uid="uid://cn7begbh38ggh" path="res://Scripts/clock.gd" id="1_ists2"]
+[ext_resource type="Texture2D" uid="uid://ckqphpu0fwc4o" path="res://Sprites/Clock/Clock_Glass.png" id="1_t8ofn"]
+[ext_resource type="Texture2D" uid="uid://ds6u04ejeucdr" path="res://Sprites/Clock/Clock_Quarter_1.png" id="2_ists2"]
+[ext_resource type="Texture2D" uid="uid://dnjmkf275try2" path="res://Sprites/Clock/Clock_Quarter_2.png" id="3_bhbm8"]
+[ext_resource type="Texture2D" uid="uid://dv8qe8rwnjyuo" path="res://Sprites/Clock/Clock_Quarter_3.png" id="4_e52sr"]
+[ext_resource type="Texture2D" uid="uid://ddmg74pafh5gw" path="res://Sprites/Clock/Clock_Quarter_4.png" id="5_2lqih"]
+[ext_resource type="Texture2D" uid="uid://co1ukqcaj2snd" path="res://Sprites/Clock/Clock_frame.png" id="6_26qxk"]
+[ext_resource type="Texture2D" uid="uid://dcq5k4r4kgfre" path="res://Sprites/Clock/Clock_Needle.png" id="7_vpvg2"]
 
 [node name="Clock" type="Control" unique_id=347518052]
 layout_mode = 3
@@ -29,12 +29,15 @@ position = Vector2(13, 22)
 texture = ExtResource("2_ists2")
 
 [node name="ClockQuarter2" type="Sprite2D" parent="Quarters" unique_id=1779226514]
+visible = false
 texture = ExtResource("3_bhbm8")
 
 [node name="ClockQuarter3" type="Sprite2D" parent="Quarters" unique_id=1677668864]
+visible = false
 texture = ExtResource("4_e52sr")
 
 [node name="ClockQuarter4" type="Sprite2D" parent="Quarters" unique_id=1302916516]
+visible = false
 texture = ExtResource("5_2lqih")
 
 [node name="ClockFrame" type="Sprite2D" parent="." unique_id=174395266]

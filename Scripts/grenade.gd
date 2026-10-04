@@ -16,3 +16,5 @@ func _on_explosion_timer_timeout() -> void:
 	for target in targets:
 		if target.has_method("take_damage"):
 			target.take_damage(damage)
+		elif target.has_method("player_take_damage"):
+			target.player_take_damage(damage, DeathData.KilledBy.YOURSELF)

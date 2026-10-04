@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnjmkf275try2"
-path="res://.godot/imported/Clock_Quarter_2.png-a46bda52d6a3040a7c2d76e2eb091dcc.ctex"
+uid="uid://dmksxx38yubvo"
+path="res://.godot/imported/conrat.png-c6b30ccd95bc156c683704ffb7c94a1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Clock_Quarter_2.png"
-dest_files=["res://.godot/imported/Clock_Quarter_2.png-a46bda52d6a3040a7c2d76e2eb091dcc.ctex"]
+source_file="res://Sprites/conrat.png"
+dest_files=["res://.godot/imported/conrat.png-c6b30ccd95bc156c683704ffb7c94a1f.ctex"]
 
 [params]
 

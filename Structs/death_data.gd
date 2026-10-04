@@ -8,7 +8,8 @@ enum Location
 	TOP_LEFT,
 	TOP_RIGHT,
 	BOT_LEFT,
-	BOT_RIGHT
+	BOT_RIGHT,
+	NOWHERE
 }
 
 enum KilledBy
@@ -31,6 +32,7 @@ const LOCATION_NAMES := {
 	Location.TOP_RIGHT: "Top Right",
 	Location.BOT_LEFT: "Bottom Left",
 	Location.BOT_RIGHT: "Bottom Right",
+	Location.NOWHERE: "Nowhere"
 }
 
 const CLOCK_STATE_NAMES := {
@@ -51,10 +53,10 @@ var location: Location
 var clock_state: ClockState
 
 static func create_random() -> DeathData:
-	var killed_by: KilledBy = KilledBy.values().pick_random()
-	var location: Location = Location.values().pick_random()
-	var clock_state: ClockState = ClockState.values().pick_random()
-	return DeathData.new(killed_by, location, clock_state)
+	var r_killed_by: KilledBy = KilledBy.values().pick_random()
+	var r_location: Location = Location.values().pick_random()
+	var r_clock_state: ClockState = ClockState.values().pick_random()
+	return DeathData.new(r_killed_by, r_location, r_clock_state)
 
 func _init(p_killed_by: KilledBy, p_location: Location, p_clock_state: ClockState):
 	killed_by = p_killed_by

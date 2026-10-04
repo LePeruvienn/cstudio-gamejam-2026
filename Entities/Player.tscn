@@ -540,7 +540,7 @@ bullet_scene = ExtResource("3_kl0bm")
 [node name="Main" parent="." unique_id=1080067608 instance=ExtResource("4_c7jvw")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Main/main_RIG" parent_id_path=PackedInt32Array(1080067608, 945859970) index="0" unique_id=1876153382]
+[node name="Skeleton3D" parent="Main/main_RIG" parent_id_path=PackedInt32Array(1080067608, 1408029890) index="0" unique_id=30974465]
 bones/2/position = Vector3(-0.19463721, 0.2510411, -0.024238646)
 bones/3/position = Vector3(0.0887912, -0.09508149, -0.04247993)
 bones/3/rotation = Quaternion(0.094113715, 0.98425853, 0.14891294, -0.01423796)
@@ -578,7 +578,7 @@ bones/32/rotation = Quaternion(-0.19754255, 0.18413137, 0.030818615, 0.9623528)
 bones/33/position = Vector3(-4.622527e-08, 0.15167154, 0.18607035)
 bones/33/scale = Vector3(1, 0.99999994, 0.99999994)
 
-[node name="AnimationPlayer" parent="Main" index="1" unique_id=285543615]
+[node name="AnimationPlayer" parent="Main" index="1" unique_id=1066613413]
 libraries/ = SubResource("AnimationLibrary_drum4")
 autoplay = &"Idle"
 

@@ -1,9 +1,11 @@
 extends Node3D
 
-@export var smooth_speed: float = 5.0
+@onready var game_manager: GameManager = %GameManager
 
-@onready var player: Node3D = %Player
+@export var smooth_speed: float = 5.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position = global_position.lerp(player.position, smooth_speed * delta)
+	var player: Player = game_manager.player_instance
+	if is_instance_valid(player):
+		position = global_position.lerp(player.position, smooth_speed * delta)
