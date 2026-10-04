@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://by8ffjiaxaeb0" path="res://Enemies/Melee.tscn" id="5_grg3l"]
 [ext_resource type="PackedScene" uid="uid://cfxpox52bolx4" path="res://Enemies/Mage.tscn" id="6_frkhe"]
 [ext_resource type="Script" uid="uid://bjinnmvc12qr2" path="res://Scripts/game_ui.gd" id="7_1p5hy"]
+[ext_resource type="AudioStream" uid="uid://b2tduaes0ovag" path="res://Sounds/ambient_wind.wav" id="7_hwpts"]
+[ext_resource type="AudioStream" uid="uid://3vhcfgsr2dae" path="res://Sounds/The Vampire Masquerade Gothic Organ Version Dark Music.mp3" id="8_jyqft"]
 [ext_resource type="PackedScene" uid="uid://dnb0dwpg7tdye" path="res://Enemies/Healer.tscn" id="10_1p5hy"]
 [ext_resource type="PackedScene" uid="uid://dmx5imqjlln2w" path="res://Enemies/Slasher.tscn" id="10_2w5on"]
 [ext_resource type="Script" uid="uid://g3svsd8prvio" path="res://Scripts/location_manager.gd" id="11_grg3l"]
@@ -99,6 +101,8 @@ player_hud_scene = ExtResource("2_4kpch")
 choose_contract_scene = ExtResource("2_bmxlf")
 looser_scene = ExtResource("2_50glp")
 player_scene = ExtResource("5_4kpch")
+ambient_wind_sound = ExtResource("7_hwpts")
+music_fight_sound = ExtResource("8_jyqft")
 
 [node name="CameraTarget" type="Node3D" parent="." unique_id=1955040109]
 transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 0, 0)
@@ -123,7 +127,7 @@ autostart = true
 curve = SubResource("Curve3D_gjpho")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="EnemySpawner/SpawnPath" unique_id=1532760944]
-transform = Transform3D(0.9976098, 0, -0.06902449, 0, 1, 0, 0.06902449, 0, 0.9976098, 22.298334, -0.00012207031, 5.4064016)
+transform = Transform3D(0.99760973, 0, -0.06902448, 0, 1, 0, 0.06902448, 0, 0.99760973, 22.298334, -0.00012207031, 5.4064016)
 
 [node name="World" type="Node3D" parent="." unique_id=1460159031]
 
@@ -224,5 +228,8 @@ script = ExtResource("16_erwvk")
 fog_density_enabled = 0.849
 noise_strength = 0.524
 noise_speed = 1.196
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=527295022]
+autoplay = true
 
 [connection signal="timeout" from="EnemySpawner/SpawnTimer" to="EnemySpawner" method="_on_enemy_timer_timeout"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bccs6oraaiki" path="res://Scripts/menu.gd" id="1_6rt2b"]
 [ext_resource type="Texture2D" uid="uid://b72mjk14pkwm0" path="res://Sprites/demon.png" id="2_3buhb"]
+[ext_resource type="Texture2D" uid="uid://bhoehdk0ppuvg" path="res://logo_blanc.png" id="3_prp1n"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6rt2b"]
 texture = ExtResource("2_3buhb")
@@ -61,13 +62,6 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/margin_bottom = 76
 
-[node name="Label" type="Label" parent="Panel/CenterContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1885384540]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(1, 1, 1, 0.69803923)
-theme_override_font_sizes/font_size = 48
-text = "Devil's Game"
-
 [node name="Button" type="Button" parent="Panel/CenterContainer/MarginContainer/VBoxContainer" unique_id=1054800800]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -76,5 +70,10 @@ theme_override_colors/font_color = Color(0.09147029, 0.18230826, 0.19830322, 1)
 theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_3buhb")
 text = "Jouer"
+
+[node name="LogoBlanc" type="Sprite2D" parent="." unique_id=547724439]
+position = Vector2(654.34607, 412.3125)
+scale = Vector2(0.2425325, 0.24253252)
+texture = ExtResource("3_prp1n")
 
 [connection signal="pressed" from="Panel/CenterContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

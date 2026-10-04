@@ -113,20 +113,20 @@ damage_taken_sounds = Array[AudioStream]([ExtResource("2_sd0ns"), ExtResource("3
 [node name="gnome" parent="." unique_id=172474652 instance=ExtResource("5_6apb4")]
 transform = Transform3D(-1.6, 0, -1.3987645e-07, 0, 1.6, 0, 1.3987645e-07, 0, -1.6, 0, 0, 0)
 
-[node name="Skeleton3D" parent="gnome/Armature_002" parent_id_path=PackedInt32Array(172474652, 1097544009) index="0" unique_id=244633497]
-bones/1/position = Vector3(0.01937231, -0.046199124, -0.62436795)
-bones/1/rotation = Quaternion(-0.51713055, -2.9487495e-07, 1.8765698e-07, 0.8559066)
-bones/2/rotation = Quaternion(-0.18188544, 1.5791981e-08, 6.2622014e-08, 0.98331976)
+[node name="Skeleton3D" parent="gnome/Armature_002" parent_id_path=PackedInt32Array(172474652, 1516065944) index="0" unique_id=142376512]
+bones/1/position = Vector3(0.019372284, 0.028456723, -0.7819748)
+bones/1/rotation = Quaternion(-0.7071068, -2.6004122e-07, 2.8378975e-07, 0.7071068)
+bones/2/rotation = Quaternion(-0.06317813, 2.3155929e-08, 6.0288514e-08, 0.99800235)
 bones/3/position = Vector3(0.15565503, 0.5317526, -0.029469414)
-bones/3/rotation = Quaternion(0.44226408, -0.031897932, -0.6662357, 0.5995958)
-bones/4/rotation = Quaternion(0.7590035, -0.46151197, 0.12412705, 0.4421685)
-bones/5/rotation = Quaternion(0.715771, -0.56810004, -0.11019939, 0.39088413)
-bones/6/position = Vector3(0.20965554, 0.070057556, -0.14053269)
-bones/6/rotation = Quaternion(0.044859577, -0.037482947, -0.037267853, 0.997594)
-bones/7/position = Vector3(-0.30429727, -0.24844976, -0.26874408)
-bones/7/rotation = Quaternion(0.1702338, -0.068832025, -0.022709634, 0.9827344)
+bones/3/rotation = Quaternion(0.012245536, -0.40813246, -0.5546624, 0.7250018)
+bones/4/rotation = Quaternion(0.37768584, -0.3776856, 0.59778994, 0.5977911)
+bones/5/rotation = Quaternion(0.78644395, -0.45498174, 0.41674435, 0.028664168)
+bones/6/position = Vector3(0.20965551, 0.07558744, -0.40597582)
+bones/6/rotation = Quaternion(-0.08922526, -0.04213888, -0.03190889, 0.994608)
+bones/7/position = Vector3(-0.30429727, -0.39034203, -0.3640178)
+bones/7/rotation = Quaternion(0.17100707, -0.068814114, -0.022763787, 0.98260015)
 
-[node name="AnimationPlayer" parent="gnome" index="1" unique_id=739274300]
+[node name="AnimationPlayer" parent="gnome" index="1" unique_id=1491473312]
 libraries/ = SubResource("AnimationLibrary_34q8f")
 autoplay = &"Destruction"
 

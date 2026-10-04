@@ -95,9 +95,6 @@ func end_dash() -> void:
 	velocity.x = 0.0
 	velocity.z = 0.0
 
-	# animation_player.play("walk")
-
-
 func handle_attack_collision() -> void:
 	if has_hit_player:
 		return
@@ -106,11 +103,10 @@ func handle_attack_collision() -> void:
 		if target.has_method("player_take_damage"):
 			target.player_take_damage(
 				damage,
-				DeathData.KilledBy.ENEMY_MELEE
+				DeathData.KilledBy.ENEMY_SLASHER
 			)
 			has_hit_player = true
 			return
-
 
 func _on_attack_timer_timeout() -> void:
 	can_attack = true

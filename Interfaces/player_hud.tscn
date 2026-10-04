@@ -50,3 +50,16 @@ grow_horizontal = 2
 scale = Vector2(1.0130919, 1)
 theme_override_font_sizes/font_size = 24
 text = "Location Name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1700687159]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=113783194]
+layout_mode = 2
+text = "Nombre de réincarnation : "
+
+[node name="Label2" type="Label" parent="HBoxContainer" unique_id=1282270563]
+layout_mode = 2
+text = "0"

@@ -16,6 +16,7 @@ enum KilledBy
 {
 	ENEMY_RANGE,
 	ENEMY_MELEE,
+	ENEMY_SLASHER,
 	YOURSELF
 }
 
@@ -36,16 +37,17 @@ const LOCATION_NAMES := {
 }
 
 const CLOCK_STATE_NAMES := {
-	ClockState.TOP_LEFT: "Top Left",
-	ClockState.TOP_RIGHT: "Top Right",
-	ClockState.BOT_LEFT: "Bottom Left",
-	ClockState.BOT_RIGHT: "Bottom Right",
+	ClockState.TOP_LEFT: "1er Quadrant",
+	ClockState.TOP_RIGHT: "4ème Quadrant",
+	ClockState.BOT_LEFT: "3ème Quadrant",
+	ClockState.BOT_RIGHT: "2ème Quadrant",
 }
 
 const KILLED_BY_NAMES := {
-	KilledBy.ENEMY_RANGE: "Enemy Range",
-	KilledBy.ENEMY_MELEE: "Enemy Melee",
-	KilledBy.YOURSELF: "Yourself",
+	KilledBy.ENEMY_RANGE: "Diablotin",
+	KilledBy.ENEMY_MELEE: "Gnome",
+	KilledBy.YOURSELF: "Toi-même",
+	KilledBy.ENEMY_SLASHER: "Dinausore"
 }
 
 var killed_by: KilledBy
