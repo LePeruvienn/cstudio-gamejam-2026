@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cqovree5grn6g"]
 
 [ext_resource type="Script" uid="uid://bvmjqxfnmi6x6" path="res://Scripts/enemy_spawner.gd" id="1_6jpfj"]
-[ext_resource type="PackedScene" uid="uid://b70fyiuxeya2j" path="res://Enemies/Enemy.tscn" id="2_eo2pv"]
 
 [sub_resource type="Curve3D" id="Curve3D_gjpho"]
 closed = true
@@ -13,9 +12,8 @@ point_count = 4
 
 [node name="EnemySpawner" type="Node3D" unique_id=1066224958]
 script = ExtResource("1_6jpfj")
-enemy_scene = ExtResource("2_eo2pv")
 
-[node name="EnemyTimer" type="Timer" parent="." unique_id=1119427738]
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1119427738]
 autostart = true
 
 [node name="SpawnPath" type="Path3D" parent="." unique_id=1362832994]
@@ -24,4 +22,4 @@ curve = SubResource("Curve3D_gjpho")
 [node name="PathFollow3D" type="PathFollow3D" parent="SpawnPath" unique_id=942239410]
 transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 24.062225, -0.00012207031, 24.013021)
 
-[connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_enemy_timer_timeout"]
