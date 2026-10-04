@@ -11,10 +11,6 @@ class_name HealerEnemy
 
 var can_heal: bool = true
 
-func _ready() -> void:
-	pass
-	# $Allie2/AnimationPlayer.play("idle")
-
 func handle_movement(delta: float) -> void:
 	rotate_towards_player(delta)
 	var distance2: float = position.distance_squared_to(player.position)

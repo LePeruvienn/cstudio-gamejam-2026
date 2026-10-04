@@ -28,11 +28,11 @@ enum ClockState
 }
 
 const LOCATION_NAMES := {
-	Location.TOP_LEFT: "Top Left",
-	Location.TOP_RIGHT: "Top Right",
-	Location.BOT_LEFT: "Bottom Left",
-	Location.BOT_RIGHT: "Bottom Right",
-	Location.NOWHERE: "Nowhere"
+	Location.TOP_LEFT: "Zone Limbes",
+	Location.TOP_RIGHT: "Zone Hérésie",
+	Location.BOT_LEFT: "Hotel Sacrificiel",
+	Location.BOT_RIGHT: "Zone Violence",
+	Location.NOWHERE: "Zone neutre"
 }
 
 const CLOCK_STATE_NAMES := {

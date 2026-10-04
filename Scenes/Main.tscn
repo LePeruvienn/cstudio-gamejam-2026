@@ -15,8 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://dnb0dwpg7tdye" path="res://Enemies/Healer.tscn" id="10_1p5hy"]
 [ext_resource type="PackedScene" uid="uid://dmx5imqjlln2w" path="res://Enemies/Slasher.tscn" id="10_2w5on"]
 [ext_resource type="Script" uid="uid://g3svsd8prvio" path="res://Scripts/location_manager.gd" id="11_grg3l"]
+[ext_resource type="PackedScene" uid="uid://xfdsm6jbsc7g" path="res://World/map.tscn" id="14_346fj"]
 [ext_resource type="Shader" uid="uid://cwt54escj3lc2" path="res://Material/fog.gdshader" id="15_h1m7h"]
 [ext_resource type="Script" uid="uid://jytooiaq7yhu" path="res://Scripts/fog_manager.gd" id="16_erwvk"]
+[ext_resource type="Script" uid="uid://b2r2fb6hkcx7k" path="res://Scenes/transition.gd" id="18_0sclb"]
+[ext_resource type="Texture2D" uid="uid://coi75qh4ds2mr" path="res://Sprites/black_screen.png" id="18_sxkr1"]
+[ext_resource type="AudioStream" uid="uid://b0qq5qsrij13p" path="res://Sounds/stone_push_long.wav" id="20_fq0cl"]
 
 [sub_resource type="Resource" id="Resource_gxcmu"]
 script = ExtResource("4_4kpch")
@@ -45,7 +49,7 @@ metadata/_custom_type_script = "uid://cc5tkqn26pkrw"
 [sub_resource type="Curve3D" id="Curve3D_gjpho"]
 closed = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 24.062225, -0.00012207031, 24.013021, 0, 0, 0, 0, 0, 0, 24.062225, -0.00012207031, -24.559616, 0, 0, 0, 0, 0, 0, -25.108593, -0.00012207031, -24.559616, 0, 0, 0, 0, 0, 0, -24.869324, -0.00012207031, 24.970118),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 22.298334, -0.00012207031, 5.4064016, 0, 0, 0, 0, 0, 0, 24.062225, -0.00012207031, -20.087095, 0, 0, 0, 0, 0, 0, -22.51385, 1.3423672, -20.7787, 0, 0, 0, 0, 0, 0, -17.460728, -0.3024113, 27.946302),
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
@@ -61,12 +65,17 @@ sky_material = SubResource("ProceduralSkyMaterial_f3sb7")
 background_mode = 2
 sky = SubResource("Sky_fj7yv")
 
-[sub_resource type="BoxMesh" id="BoxMesh_gv5m4"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_f3sb7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_grg3l"]
-size = Vector3(19.949738, 7.724121, 18.847351)
+size = Vector3(14.522387, 9.7595215, 14.873833)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_346fj"]
+height = 8.336914
+radius = 11.908691
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_346fj"]
+size = Vector3(8.413727, 6.345215, 5.694031)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1p5hy"]
 shader = ExtResource("15_h1m7h")
@@ -114,7 +123,7 @@ autostart = true
 curve = SubResource("Curve3D_gjpho")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="EnemySpawner/SpawnPath" unique_id=1532760944]
-transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 24.062225, -0.00012207031, 24.013021)
+transform = Transform3D(0.99760985, 0, -0.06902449, 0, 1, 0, 0.06902449, 0, 0.99760985, 22.298334, -0.00012207031, 5.4064016)
 
 [node name="World" type="Node3D" parent="." unique_id=1460159031]
 
@@ -127,12 +136,11 @@ environment = SubResource("Environment_tlwt5")
 
 [node name="Ground" type="StaticBody3D" parent="World" unique_id=934886842]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground" unique_id=1461003861]
-transform = Transform3D(50, 0, 0, 0, 0.5, 0, 0, 0, 50, 0, -0.25, 0)
-mesh = SubResource("BoxMesh_gv5m4")
+[node name="map" parent="World/Ground" unique_id=1386122272 instance=ExtResource("14_346fj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 3.0228863)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground" unique_id=1743996998]
-transform = Transform3D(50, 0, 0, 0, 0.5, 0, 0, 0, 50, 0, -0.25, 0)
+transform = Transform3D(50, 0, 0, 0, 0.5, 0, 0, 0, 50, 0, 0, 0)
 shape = SubResource("BoxShape3D_f3sb7")
 
 [node name="LocationManager" type="Node3D" parent="." unique_id=585348916]
@@ -143,6 +151,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.058567, 0, -13.363838)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LocationManager/TopRightArea" unique_id=1705756203]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.009281, 0, -0.28269958)
 shape = SubResource("BoxShape3D_grg3l")
 
 [node name="TopLeftArea" type="Area3D" parent="LocationManager" unique_id=552337005]
@@ -150,13 +159,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.731234, 0, -13.363838)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LocationManager/TopLeftArea" unique_id=1821910904]
-shape = SubResource("BoxShape3D_grg3l")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.562502, 3.168457, 0.77993584)
+shape = SubResource("CylinderShape3D_346fj")
 
 [node name="BotRightArea" type="Area3D" parent="LocationManager" unique_id=1216480195]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.731234, 0, 11.822527)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LocationManager/BotRightArea" unique_id=1655285521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7179947, 0, 4.821558)
 shape = SubResource("BoxShape3D_grg3l")
 
 [node name="BotLeftArea" type="Area3D" parent="LocationManager" unique_id=738390198]
@@ -164,9 +175,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.058567, 0, 11.921574)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LocationManager/BotLeftArea" unique_id=1632706552]
-shape = SubResource("BoxShape3D_grg3l")
+transform = Transform3D(0.63607824, 0, -0.77162457, 0, 1, 0, 0.77162457, 0, 0.63607824, 2.2741623, 3.6903076, 3.3392859)
+shape = SubResource("BoxShape3D_346fj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1024979472]
+follow_viewport_enabled = true
 script = ExtResource("7_1p5hy")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1094262380]
@@ -177,6 +190,34 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1498793263]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1290.0
+offset_bottom = 724.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=1034814205]
+layer = 100
+follow_viewport_enabled = true
+
+[node name="TransitionManager" type="TextureRect" parent="TransitionLayer" unique_id=1152270431]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource("18_sxkr1")
+script = ExtResource("18_0sclb")
+transition_duration = 0.5
+mid_duration = 1.0
+transition_sfx = ExtResource("20_fq0cl")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TransitionLayer/TransitionManager" unique_id=410456553]
 
 [node name="FogManager" type="Node3D" parent="." unique_id=1033319890]
 script = ExtResource("16_erwvk")
