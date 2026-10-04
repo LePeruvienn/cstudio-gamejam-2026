@@ -3,10 +3,30 @@ class_name EnemySpawner
 
 @onready var game_manager: GameManager = %GameManager
 @onready var enemy_spawn_location: PathFollow3D = $SpawnPath/PathFollow3D
+@onready var spawn_timer: Timer = $SpawnTimer
 
+@export_category("Spawn Config")
 @export var enemy_spawn_configs: Array[EnemySpawnConfig] = []
 
+@export_category("Spawn Difficulty")
+@export var initial_spawn_interval: float = 2.0
+@export var spawn_interval_decrease: float = 0.2
+@export var minimum_spawn_interval: float = 0.3
+
 var is_active: bool = false
+var current_spawn_interval: float = initial_spawn_interval
+
+func _ready() -> void:
+	current_spawn_interval = initial_spawn_interval
+
+func spawn_more() -> void:
+	current_spawn_interval = maxf(
+		current_spawn_interval - spawn_interval_decrease,
+		minimum_spawn_interval
+	)
+	spawn_timer.wait_time = current_spawn_interval
+	if spawn_timer.is_stopped() == false:
+		spawn_timer.start()
 
 func set_active(p_is_active: bool) -> void:
 	is_active = p_is_active

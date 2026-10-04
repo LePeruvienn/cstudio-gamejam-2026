@@ -20,6 +20,7 @@ var looser_screen_instance: LooserScreen = null
 
 var round_counter: int = 0
 var current_contract: DeathData = null
+var current_bonus: BonusData = null
 
 func _ready() -> void:
 	start_game()
@@ -39,7 +40,10 @@ func open_menu() -> void:
 func open_choose_contrat() -> void:
 	choose_contract_instance = choose_contract_scene.instantiate()
 	canva_layer.add_child(choose_contract_instance)
-	current_contract = await choose_contract_instance.choosed_contract
+	var result: Array = await choose_contract_instance.choosed_contract
+	current_contract = result[0]
+	current_bonus = result[1]
+	print(result)
 	print(current_contract)
 	choose_contract_instance.queue_free()
 	choose_contract_instance = null
@@ -51,7 +55,7 @@ func start_round() -> void:
 	
 	player_instance = player_scene.instantiate()
 	get_tree().root.add_child(player_instance)
-	
+	player_instance.apply_bonus(current_bonus)
 	enemy_spawner.set_active(true)
 	player_hud_instance.show_clock_quarter(current_contract.clock_state)
 	# Wait player to die, and then get all the data

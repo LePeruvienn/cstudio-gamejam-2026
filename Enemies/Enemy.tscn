@@ -20,6 +20,17 @@ viewport_path = NodePath("SubViewport")
 
 [node name="Enemy" type="CharacterBody3D" unique_id=1833152759]
 script = ExtResource("1_tt7e2")
+max_health = null
+speed = null
+rotation_speed = null
+knockback_force = null
+knockback_friction = null
+spawn_animation_enabled = null
+spawn_start_scale = null
+spawn_animation_duration = null
+death_animation_enabled = null
+death_end_scale = null
+death_animation_duration = null
 
 [node name="Body" type="MeshInstance3D" parent="." unique_id=1617926624]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

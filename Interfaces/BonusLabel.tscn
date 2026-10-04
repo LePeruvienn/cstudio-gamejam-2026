@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dpx33ybxo872l"]
+
+[ext_resource type="Script" uid="uid://5jrc724whucc" path="res://Scripts/bonus_label.gd" id="1_cvth3"]
+
+[node name="BonusLabel" type="Control" unique_id=1615723424]
+layout_mode = 3
+anchor_right = 0.060000002
+anchor_bottom = 0.060000002
+offset_right = -0.35554504
+offset_bottom = -0.20000076
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cvth3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=437379349]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42200002
+anchor_right = 0.42200002
+offset_left = -32.537334
+offset_right = 32.462666
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelValue" type="Label" parent="HBoxContainer" unique_id=80910051]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Vie :"
+
+[node name="LabelName" type="Label" parent="HBoxContainer" unique_id=1040601605]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "+10"

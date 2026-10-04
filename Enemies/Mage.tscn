@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bhiumehdpjbrd" path="res://Scripts/mage.gd" id="1_npit8"]
 [ext_resource type="PackedScene" uid="uid://bexqxstavo0in" path="res://Projectiles/Projectile.tscn" id="2_l4rfc"]
+[ext_resource type="AudioStream" uid="uid://cn8yoekt3t6ns" path="res://Sounds/PlayerAttack/punch.wav" id="3_1wdu3"]
+[ext_resource type="AudioStream" uid="uid://42xa2bsd5t2u" path="res://Sounds/PlayerAttack/punch_2.wav" id="4_prh1s"]
+[ext_resource type="AudioStream" uid="uid://648flfqxo2u3" path="res://Sounds/PlayerAttack/punch_3.wav" id="5_n1cdo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rwas"]
 albedo_color = Color(0.9296176, 0.0003322947, 0.84630823, 1)
@@ -27,6 +30,7 @@ collision_mask = 7
 script = ExtResource("1_npit8")
 projectile_scene = ExtResource("2_l4rfc")
 projectile_speed = 20.0
+damage_taken_sounds = Array[AudioStream]([ExtResource("3_1wdu3"), ExtResource("4_prh1s"), ExtResource("5_n1cdo")])
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=1637488627]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9871565, -0.79006124)
@@ -68,5 +72,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3704567, 0)
 billboard = 1
 transparent = false
 texture = SubResource("ViewportTexture_tt7e2")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=326654934]
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
