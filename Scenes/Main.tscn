@@ -27,19 +27,19 @@
 [sub_resource type="Resource" id="Resource_gxcmu"]
 script = ExtResource("4_4kpch")
 enemy_scene = ExtResource("10_2w5on")
-chance = 10.0
+chance = 5.0
 metadata/_custom_type_script = "uid://cc5tkqn26pkrw"
 
 [sub_resource type="Resource" id="Resource_frkhe"]
 script = ExtResource("4_4kpch")
 enemy_scene = ExtResource("10_1p5hy")
-chance = 20.0
+chance = 2.0
 metadata/_custom_type_script = "uid://cc5tkqn26pkrw"
 
 [sub_resource type="Resource" id="Resource_p70al"]
 script = ExtResource("4_4kpch")
 enemy_scene = ExtResource("5_grg3l")
-chance = 30.0
+chance = 1.0
 metadata/_custom_type_script = "uid://cc5tkqn26pkrw"
 
 [sub_resource type="Resource" id="Resource_45d1s"]
@@ -118,6 +118,7 @@ fov = 40.0
 [node name="EnemySpawner" type="Node3D" parent="." unique_id=939323717]
 script = ExtResource("3_bmxlf")
 enemy_spawn_configs = Array[ExtResource("4_4kpch")]([SubResource("Resource_gxcmu"), SubResource("Resource_frkhe"), SubResource("Resource_p70al"), SubResource("Resource_45d1s")])
+initial_spawn_interval = 4.0
 
 [node name="SpawnTimer" type="Timer" parent="EnemySpawner" unique_id=1027248567]
 wait_time = 3.0
@@ -127,7 +128,7 @@ autostart = true
 curve = SubResource("Curve3D_gjpho")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="EnemySpawner/SpawnPath" unique_id=1532760944]
-transform = Transform3D(0.99760973, 0, -0.06902448, 0, 1, 0, 0.06902448, 0, 0.99760973, 22.298334, -0.00012207031, 5.4064016)
+transform = Transform3D(0.9976095, 0, -0.069024466, 0, 1, 0, 0.069024466, 0, 0.9976095, 22.298334, -0.00012207031, 5.4064016)
 
 [node name="World" type="Node3D" parent="." unique_id=1460159031]
 

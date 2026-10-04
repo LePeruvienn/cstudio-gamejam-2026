@@ -609,6 +609,7 @@ viewport_path = NodePath("SubViewport")
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_npit8")
+attack_damage = 20
 projectile_scene = ExtResource("2_l4rfc")
 projectile_speed = 20.0
 damage_taken_sounds = Array[AudioStream]([ExtResource("3_1wdu3"), ExtResource("4_prh1s"), ExtResource("5_n1cdo")])
@@ -616,7 +617,7 @@ damage_taken_sounds = Array[AudioStream]([ExtResource("3_1wdu3"), ExtResource("4
 [node name="Lancier" parent="." unique_id=1501064703 instance=ExtResource("6_prh1s")]
 transform = Transform3D(-1.8, 0, -1.57361e-07, 0, 1.8, 0, 1.57361e-07, 0, -1.8, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Lancier/main_RIG_002" parent_id_path=PackedInt32Array(1501064703, 1683656332) index="0" unique_id=2080166862]
+[node name="Skeleton3D" parent="Lancier/main_RIG_002" parent_id_path=PackedInt32Array(1501064703, 118971696) index="0" unique_id=453371050]
 bones/0/position = Vector3(-2.6292437e-16, -0.012570955, 0.043998335)
 bones/0/rotation = Quaternion(-0.4800644, -0.5191707, 0.48006433, 0.51917076)
 bones/1/position = Vector3(0.029852664, -0.03668384, 2.3310542e-10)
@@ -659,7 +660,7 @@ bones/27/scale = Vector3(0.9999999, 0.9999999, 1)
 bones/28/rotation = Quaternion(0.44750294, 0.0014518305, -0.06424667, 0.89197063)
 bones/29/rotation = Quaternion(-0.65780896, 0.103662625, 0.071654655, 0.7425679)
 
-[node name="AnimationPlayer" parent="Lancier" index="1" unique_id=600376403]
+[node name="AnimationPlayer" parent="Lancier" index="1" unique_id=775693830]
 libraries/ = SubResource("AnimationLibrary_b5jq5")
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=1637488627]

@@ -108,12 +108,13 @@ viewport_path = NodePath("SubViewport")
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_0kn8i")
+damage = 5
 damage_taken_sounds = Array[AudioStream]([ExtResource("2_sd0ns"), ExtResource("3_6apb4"), ExtResource("4_34q8f")])
 
 [node name="gnome" parent="." unique_id=172474652 instance=ExtResource("5_6apb4")]
 transform = Transform3D(-1.6, 0, -1.3987645e-07, 0, 1.6, 0, 1.3987645e-07, 0, -1.6, 0, 0, 0)
 
-[node name="Skeleton3D" parent="gnome/Armature_002" parent_id_path=PackedInt32Array(172474652, 1516065944) index="0" unique_id=142376512]
+[node name="Skeleton3D" parent="gnome/Armature_002" parent_id_path=PackedInt32Array(172474652, 214411552) index="0" unique_id=507519454]
 bones/1/position = Vector3(0.019372284, 0.028456723, -0.7819748)
 bones/1/rotation = Quaternion(-0.7071068, -2.6004122e-07, 2.8378975e-07, 0.7071068)
 bones/2/rotation = Quaternion(-0.06317813, 2.3155929e-08, 6.0288514e-08, 0.99800235)
@@ -126,7 +127,7 @@ bones/6/rotation = Quaternion(-0.08922526, -0.04213888, -0.03190889, 0.994608)
 bones/7/position = Vector3(-0.30429727, -0.39034203, -0.3640178)
 bones/7/rotation = Quaternion(0.17100707, -0.068814114, -0.022763787, 0.98260015)
 
-[node name="AnimationPlayer" parent="gnome" index="1" unique_id=1491473312]
+[node name="AnimationPlayer" parent="gnome" index="1" unique_id=1807314344]
 libraries/ = SubResource("AnimationLibrary_34q8f")
 autoplay = &"Destruction"
 
