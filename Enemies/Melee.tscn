@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://by8ffjiaxaeb0"]
 
 [ext_resource type="Script" uid="uid://clmc75bljg54g" path="res://Scripts/melee.gd" id="1_0kn8i"]
+[ext_resource type="AudioStream" uid="uid://cn8yoekt3t6ns" path="res://Sounds/PlayerAttack/punch.wav" id="2_sd0ns"]
+[ext_resource type="AudioStream" uid="uid://42xa2bsd5t2u" path="res://Sounds/PlayerAttack/punch_2.wav" id="3_6apb4"]
+[ext_resource type="AudioStream" uid="uid://648flfqxo2u3" path="res://Sounds/PlayerAttack/punch_3.wav" id="4_34q8f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rwas"]
 albedo_color = Color(0.99607843, 0.22745098, 0.13333334, 1)
@@ -24,6 +27,7 @@ viewport_path = NodePath("SubViewport")
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_0kn8i")
+damage_taken_sounds = Array[AudioStream]([ExtResource("2_sd0ns"), ExtResource("3_6apb4"), ExtResource("4_34q8f")])
 
 [node name="Body" type="MeshInstance3D" parent="." unique_id=1617926624]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -64,5 +68,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0842552, -0.3840588)
 shape = SubResource("BoxShape3D_0kn8i")
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=1957966675]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1950720601]
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

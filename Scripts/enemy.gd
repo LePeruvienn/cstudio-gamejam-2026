@@ -1,8 +1,13 @@
 extends CharacterBody3D
 class_name Enemy
 
+@onready var audio_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var body_mesh: MeshInstance3D = $Body
 @onready var progress_bar: ProgressBar = $SubViewport/ProgressBar
+
+@export_category("Sounds")
+@export var damage_taken_sounds: Array[AudioStream] = []
+@export var death_sound: AudioStream = null
 
 @export_category("Statistics")
 @export var max_health: int = 50
@@ -106,6 +111,7 @@ func take_damage(
 			* knockback_force
 		)
 
+	play_random_sound(audio_player, damage_taken_sounds)
 	update_progress_bar()
 
 	if health <= 0:
@@ -119,6 +125,8 @@ func die() -> void:
 
 	is_dead = true
 
+	if death_sound != null:
+		play_random_sound(audio_player, [death_sound])
 	if death_animation_enabled:
 		play_death_animation()
 	else:
@@ -160,3 +168,10 @@ func play_death_animation() -> void:
 func update_progress_bar() -> void:
 	progress_bar.max_value = max_health
 	progress_bar.value = health
+
+	
+func play_random_sound(audio_player: AudioStreamPlayer3D, sounds: Array[AudioStream]) -> void:
+	if sounds.is_empty():
+		return
+	audio_player.stream = sounds.pick_random()
+	audio_player.play()

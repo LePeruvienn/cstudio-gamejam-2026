@@ -1,6 +1,10 @@
 extends CharacterBody3D
 class_name Player
 
+@onready var audio_attack_player: AudioStreamPlayer3D = $AudioStreamPlayers/AttackPlayer
+@onready var audio_damage_taken_player: AudioStreamPlayer3D = $AudioStreamPlayers/DamageTakenPlayer
+@onready var audio_heal_player: AudioStreamPlayer3D = $AudioStreamPlayers/HealPlayer
+
 @onready var grenade_origin: Marker3D = $GrenadeOrigin
 @onready var bullet_origin: Marker3D = $BulletOrigin
 @onready var melee_area: Area3D = $Area3D
@@ -16,13 +20,17 @@ class_name Player
 @export var grenade_scene: PackedScene
 @export var bullet_scene: PackedScene
 
-@export_category("Attack Speed")
+@export_category("Attack")
 @export var attack_speed: float = 1.0
-
 @export var melee_attack_cooldown: float = 0.5
 @export var bullet_attack_cooldown: float = 0.2
 @export var grenade_attack_cooldown: float = 1.0
 
+@export_category("Sound")
+@export var melee_attack_sounds: Array[AudioStream] = []
+@export var damage_taken_sounds: Array[AudioStream] = []
+@export var healed_sounds: Array[AudioStream] = []
+@export var death_sound: AudioStream = null
 
 var health: int = max_health
 var is_dead: bool = false
@@ -35,7 +43,6 @@ var grenade_attack_timer: float = 0.0
 
 
 signal death(killed_by: DeathData.KilledBy)
-
 
 func _ready() -> void:
 	animation_player.play("Idling")
@@ -76,17 +83,14 @@ func _physics_process(delta: float) -> void:
 
 func heal(heal_amount: int) -> void:
 	health += heal_amount
-
+	play_random_sound(audio_heal_player, healed_sounds)
 	if health > max_health:
 		health = max_health
 
 
-func player_take_damage(
-	damage_amount: int,
-	p_killed_by: DeathData.KilledBy
-) -> void:
+func player_take_damage(damage_amount: int, p_killed_by: DeathData.KilledBy) -> void:
 	health -= damage_amount
-
+	play_random_sound(audio_damage_taken_player, damage_taken_sounds)
 	if health <= 0:
 		health = 0
 		is_dead = true
@@ -234,6 +238,8 @@ func handle_melee_attack() -> void:
 
 	var targets = melee_area.get_overlapping_bodies()
 
+	play_random_sound(audio_attack_player, melee_attack_sounds)
+
 	for target in targets:
 		if target.has_method("take_damage"):
 			target.take_damage(
@@ -244,3 +250,9 @@ func handle_melee_attack() -> void:
 	melee_attack_timer = melee_attack_cooldown / attack_speed
 
 	animation_player.play("Attack")
+	
+func play_random_sound(audio_player: AudioStreamPlayer3D, sounds: Array[AudioStream]) -> void:
+	if sounds.is_empty():
+		return
+	audio_player.stream = sounds.pick_random()
+	audio_player.play()

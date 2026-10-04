@@ -3,7 +3,12 @@
 [ext_resource type="Script" uid="uid://ceisvagkmoi75" path="res://Scripts/player.gd" id="1_xhfnw"]
 [ext_resource type="PackedScene" uid="uid://c462wxp4854f5" path="res://Projectiles/Grenade.tscn" id="2_bkgf5"]
 [ext_resource type="PackedScene" uid="uid://co2l7ep7vfmjg" path="res://Projectiles/Bullet.tscn" id="3_kl0bm"]
+[ext_resource type="AudioStream" uid="uid://dy7jvua2yfwgr" path="res://Sounds/swipe.wav" id="4_2a4id"]
 [ext_resource type="PackedScene" uid="uid://bksv0oppteu46" path="res://Models/Player.glb" id="4_c7jvw"]
+[ext_resource type="AudioStream" uid="uid://xwop7gdiurfu" path="res://Sounds/Coin/coin.wav" id="5_nn0oq"]
+[ext_resource type="AudioStream" uid="uid://iyobms3y3atv" path="res://Sounds/Coin/coin_2.wav" id="6_ry37w"]
+[ext_resource type="AudioStream" uid="uid://bpuubjgu3ebo0" path="res://Sounds/Coin/coin_3.wav" id="7_paumt"]
+[ext_resource type="AudioStream" uid="uid://b0oa36pvm6mob" path="res://Sounds/Coin/coin_4.wav" id="8_cfvty"]
 
 [sub_resource type="Animation" id="Animation_c7jvw"]
 resource_name = "Attack"
@@ -3377,13 +3382,23 @@ _data = {
 size = Vector3(1, 1.9999999, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_owxo4"]
-size = Vector3(1, 0.15820313, 1)
+size = Vector3(0.9873047, 1.102417, 1.1673584)
 
 [node name="Player" type="CharacterBody3D" unique_id=1833152759]
 collision_layer = 2
 script = ExtResource("1_xhfnw")
 grenade_scene = ExtResource("2_bkgf5")
 bullet_scene = ExtResource("3_kl0bm")
+melee_attack_sounds = Array[AudioStream]([ExtResource("4_2a4id")])
+healed_sounds = Array[AudioStream]([ExtResource("5_nn0oq"), ExtResource("6_ry37w"), ExtResource("7_paumt"), ExtResource("8_cfvty")])
+
+[node name="AudioStreamPlayers" type="Node3D" parent="." unique_id=1552016555]
+
+[node name="AttackPlayer" type="AudioStreamPlayer3D" parent="AudioStreamPlayers" unique_id=485806354]
+
+[node name="DamageTakenPlayer" type="AudioStreamPlayer3D" parent="AudioStreamPlayers" unique_id=1313893736]
+
+[node name="HealPlayer" type="AudioStreamPlayer3D" parent="AudioStreamPlayers" unique_id=946418520]
 
 [node name="Player" parent="." unique_id=931686681 instance=ExtResource("4_c7jvw")]
 transform = Transform3D(-1.8, 0, -1.57361e-07, 0, 1.8, 0, 1.57361e-07, 0, -1.8, 0, 0, 0)
@@ -3475,7 +3490,7 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=211775635]
-transform = Transform3D(2.6324322, 0, 0, 0, 1, 0, 0, 0, 2.0015202, 0, 0.78540826, -1.3427633)
+transform = Transform3D(2.6324322, 0, 0, 0, 1, 0, 0, 0, 2.0015202, 0.016709775, 1.2575152, -1.5102489)
 shape = SubResource("BoxShape3D_owxo4")
 debug_color = Color(0.9779586, 0, 0.40373692, 0.41960785)
 
