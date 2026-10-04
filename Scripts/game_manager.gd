@@ -43,6 +43,7 @@ func open_choose_contrat() -> void:
 	var result: Array = await choose_contract_instance.choosed_contract
 	current_contract = result[0]
 	current_bonus = result[1]
+	print(result)
 	print(current_contract)
 	choose_contract_instance.queue_free()
 	choose_contract_instance = null

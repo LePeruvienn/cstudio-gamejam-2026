@@ -4,6 +4,7 @@ class_name Player
 @onready var grenade_origin: Marker3D = $GrenadeOrigin
 @onready var bullet_origin: Marker3D = $BulletOrigin
 @onready var melee_area: Area3D = $Area3D
+@onready var animation_player: AnimationPlayer = $Player/AnimationPlayer
 
 @export_category("Statistics")
 @export var max_health: int = 500
@@ -37,7 +38,7 @@ signal death(killed_by: DeathData.KilledBy)
 
 
 func _ready() -> void:
-	$Main/AnimationPlayer.set_current_animation("idling")
+	animation_player.play("Idling")
 
 
 func _physics_process(delta: float) -> void:
@@ -66,6 +67,8 @@ func _physics_process(delta: float) -> void:
 	handle_rotation(delta)
 	move_and_slide()
 
+	handle_animation(direction)
+
 	handle_melee_attack()
 	handle_grenade()
 	handle_bullet()
@@ -91,6 +94,7 @@ func player_take_damage(
 
 
 func kill(p_killed_by: DeathData.KilledBy) -> void:
+	animation_player.play("DEATH")
 	death.emit(p_killed_by)
 
 
@@ -117,6 +121,33 @@ func handle_movement(direction: Vector3) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
+
+
+func handle_animation(direction: Vector3) -> void:
+	if is_dead:
+		return
+
+	# Ne pas interrompre l'animation d'attaque
+	if animation_player.current_animation == "Attack":
+		if animation_player.is_playing():
+			return
+
+	if direction == Vector3.ZERO:
+		animation_player.play("Idling")
+		return
+
+	var local_direction: Vector3 = global_transform.basis.inverse() * direction
+
+	if abs(local_direction.z) > abs(local_direction.x):
+		if local_direction.z < 0:
+			animation_player.play("Run_Forward")
+		else:
+			animation_player.play("Run_Backwards")
+	else:
+		if local_direction.x < 0:
+			animation_player.play("Run_Left")
+		else:
+			animation_player.play("Run_Right")
 
 
 func update_mouse_world_position() -> void:
@@ -172,6 +203,8 @@ func handle_grenade() -> void:
 
 	grenade_attack_timer = grenade_attack_cooldown / attack_speed
 
+	animation_player.play("Attack")
+
 
 func handle_bullet() -> void:
 	if not Input.is_action_just_pressed("range_attack"):
@@ -188,6 +221,8 @@ func handle_bullet() -> void:
 	bullet.add_to_group("projectiles")
 
 	bullet_attack_timer = bullet_attack_cooldown / attack_speed
+
+	animation_player.play("Attack")
 
 
 func handle_melee_attack() -> void:
@@ -207,3 +242,5 @@ func handle_melee_attack() -> void:
 			)
 
 	melee_attack_timer = melee_attack_cooldown / attack_speed
+
+	animation_player.play("Attack")
