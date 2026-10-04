@@ -1,6 +1,23 @@
 [gd_scene format=3 uid="uid://57dvaroqnk36"]
 
 [ext_resource type="Script" uid="uid://bccs6oraaiki" path="res://Scripts/menu.gd" id="1_6rt2b"]
+[ext_resource type="Texture2D" uid="uid://b72mjk14pkwm0" path="res://Sprites/demon.png" id="2_3buhb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6rt2b"]
+texture = ExtResource("2_3buhb")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3buhb"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+bg_color = Color(0.34901962, 0.5529412, 0.44313726, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 35.0
+expand_margin_top = 10.0
+expand_margin_right = 35.0
+expand_margin_bottom = 10.0
 
 [node name="Menu" type="Control" unique_id=869965651]
 layout_mode = 3
@@ -18,29 +35,46 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6rt2b")
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel" unique_id=1277032090]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -199.0
+offset_top = -188.0
+offset_right = 199.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer" unique_id=929213329]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/CenterContainer" unique_id=544054647]
+layout_mode = 2
+theme_override_constants/margin_bottom = 128
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer/MarginContainer" unique_id=929213329]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/CenterContainer/VBoxContainer" unique_id=1885384540]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/CenterContainer/MarginContainer/VBoxContainer" unique_id=321508025]
+layout_mode = 2
+theme_override_constants/margin_bottom = 76
+
+[node name="Label" type="Label" parent="Panel/CenterContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1885384540]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 128
+theme_override_colors/font_color = Color(1, 1, 1, 0.69803923)
+theme_override_font_sizes/font_size = 48
 text = "Devil's Game"
 
-[node name="Button" type="Button" parent="Panel/CenterContainer/VBoxContainer" unique_id=1054800800]
+[node name="Button" type="Button" parent="Panel/CenterContainer/MarginContainer/VBoxContainer" unique_id=1054800800]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.09147029, 0.18230826, 0.19830322, 1)
 theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_3buhb")
 text = "Jouer"
 
-[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/CenterContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

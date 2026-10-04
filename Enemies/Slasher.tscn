@@ -204,7 +204,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0rwas"]
-size = Vector3(1, 1.9999999, 1)
+size = Vector3(1.2657471, 1.9999999, 1.8231812)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tt7e2"]
 bg_color = Color(1, 0, 0.039215688, 0.6745098)
@@ -213,7 +213,7 @@ bg_color = Color(1, 0, 0.039215688, 0.6745098)
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0kn8i"]
-size = Vector3(1.0960846, 1, 1.5148926)
+size = Vector3(1.0960846, 1, 1.7276611)
 
 [node name="Slasher" type="CharacterBody3D" unique_id=1833152759]
 collision_layer = 4
@@ -228,26 +228,26 @@ damage_taken_sounds = Array[AudioStream]([ExtResource("2_vgcd2"), ExtResource("3
 [node name="dino" parent="." unique_id=87317786 instance=ExtResource("5_gunu4")]
 transform = Transform3D(-1.2, 0, -1.04907336e-07, 0, 1.2, 0, 1.04907336e-07, 0, -1.2, 0, 0, 0)
 
-[node name="Skeleton3D" parent="dino/Armature" parent_id_path=PackedInt32Array(87317786, 847034919) index="0" unique_id=131776454]
-bones/0/position = Vector3(2.4242588e-08, 6.0513616e-05, 0.9281137)
-bones/0/rotation = Quaternion(0.7996563, -0.022528438, 0.024731409, 0.59952545)
-bones/2/rotation = Quaternion(0.94486797, 2.5979608e-07, -1.8624664e-06, 0.3274518)
-bones/3/rotation = Quaternion(-0.09387919, 1.0767736e-09, -2.1328354e-07, 0.9955836)
-bones/4/rotation = Quaternion(-0.03891579, 5.079605e-09, -1.9318932e-07, 0.99924254)
-bones/8/rotation = Quaternion(0.68487567, -3.208196e-07, -9.0981575e-07, 0.7286599)
-bones/9/rotation = Quaternion(0.6848756, -3.1991024e-07, -9.0941586e-07, 0.72866)
-bones/10/rotation = Quaternion(0.5821161, 0.115780085, -0.006678533, 0.80479276)
-bones/11/rotation = Quaternion(0.61776954, 0.07400454, 0.11386302, 0.77454466)
-bones/12/rotation = Quaternion(-0.34564435, -0.012184443, 0.0699207, 0.9356777)
-bones/13/rotation = Quaternion(0.0359971, 0.040743425, 0.071498595, 0.995958)
-bones/14/rotation = Quaternion(0.5356752, -0.04763992, -0.07541508, 0.83969945)
-bones/15/rotation = Quaternion(-0.8398136, -0.060962286, -0.044312354, 0.53761816)
+[node name="Skeleton3D" parent="dino/Armature" parent_id_path=PackedInt32Array(87317786, 1375379491) index="0" unique_id=2140850042]
+bones/0/position = Vector3(1.7763568e-15, 0.1604909, 0.13226882)
+bones/0/rotation = Quaternion(0.7387315, 0.02812486, -0.025619602, 0.67292523)
+bones/2/rotation = Quaternion(0.9848082, -4.4038657e-08, -1.8783095e-06, 0.17364572)
+bones/3/rotation = Quaternion(-0.09387918, -7.149254e-11, 2.0096986e-07, 0.99558365)
+bones/4/rotation = Quaternion(-0.03891579, 6.394263e-11, 8.107978e-08, 0.9992425)
+bones/8/rotation = Quaternion(0.6848756, -8.707399e-08, -1.2199652e-06, 0.72866)
+bones/9/rotation = Quaternion(0.6848756, -8.7960956e-08, -1.2188757e-06, 0.72866)
+bones/10/rotation = Quaternion(0.28176102, 0.025281852, -0.08571934, 0.95531344)
+bones/11/rotation = Quaternion(0.46037588, 0.041308858, 0.079248585, 0.8832142)
+bones/12/rotation = Quaternion(-0.82402855, -4.1799237e-07, 2.1573144e-06, 0.56654847)
+bones/13/rotation = Quaternion(0.64527225, -0.04771598, 0.075564176, 0.7587075)
+bones/14/rotation = Quaternion(0.56450766, -0.054860268, -0.07699508, 0.8199959)
+bones/15/rotation = Quaternion(-0.4496197, 0.0016287, 0.0006892468, 0.89321834)
 
-[node name="AnimationPlayer" parent="dino" index="1" unique_id=79673780]
+[node name="AnimationPlayer" parent="dino" index="1" unique_id=931031495]
 libraries/ = SubResource("AnimationLibrary_p7er5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=205765014]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.2104552, 0, 0.99999994, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.2104552, 0.04107666, 0.99999994, -1.4466312)
 shape = SubResource("BoxShape3D_0rwas")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=502581390]
@@ -272,7 +272,7 @@ texture = SubResource("ViewportTexture_tt7e2")
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1652756479]
-transform = Transform3D(1, 0, 0, 0, 1.3796761, 0, 0, 0, 2.3785262, -0.03769684, 1.0842552, -1.2213228)
+transform = Transform3D(1, 0, 0, 0, 1.3796761, 0, 0, 0, 2.3785262, -0.03769684, 1.0842552, -1.4743606)
 shape = SubResource("BoxShape3D_0kn8i")
 debug_color = Color(0.9839038, 0, 0.35305634, 0.41960785)
 

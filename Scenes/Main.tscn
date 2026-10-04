@@ -123,7 +123,7 @@ autostart = true
 curve = SubResource("Curve3D_gjpho")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="EnemySpawner/SpawnPath" unique_id=1532760944]
-transform = Transform3D(0.99760985, 0, -0.06902449, 0, 1, 0, 0.06902449, 0, 0.99760985, 22.298334, -0.00012207031, 5.4064016)
+transform = Transform3D(0.9976098, 0, -0.06902449, 0, 1, 0, 0.06902449, 0, 0.9976098, 22.298334, -0.00012207031, 5.4064016)
 
 [node name="World" type="Node3D" parent="." unique_id=1460159031]
 

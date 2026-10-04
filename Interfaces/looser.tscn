@@ -4,6 +4,21 @@
 [ext_resource type="PackedScene" uid="uid://c1lycls8bw1nj" path="res://Interfaces/death_info_ui.tscn" id="1_qdwha"]
 [ext_resource type="AudioStream" uid="uid://cu3imweh2ghw3" path="res://Sounds/loose/harpsichord_defeated.wav" id="2_nw14k"]
 [ext_resource type="AudioStream" uid="uid://dfuc7p2so72ds" path="res://Sounds/loose/harpsichord_positive_long.wav" id="3_ik48s"]
+[ext_resource type="Texture2D" uid="uid://de4slhyotqxug" path="res://Sprites/ui_avant_fin.png" id="4_alvn0"]
+[ext_resource type="Texture2D" uid="uid://dxlsry83orlb5" path="res://Sprites/ui_game_over.png" id="5_3cmkp"]
+[ext_resource type="Texture2D" uid="uid://coi75qh4ds2mr" path="res://Sprites/black_screen.png" id="5_ik48s"]
+[ext_resource type="Script" uid="uid://b2r2fb6hkcx7k" path="res://Scenes/transition.gd" id="6_b4e2f"]
+[ext_resource type="Texture2D" uid="uid://brddrjq8i6c4w" path="res://Sprites/ui_gg.png" id="6_foa8g"]
+[ext_resource type="AudioStream" uid="uid://b0qq5qsrij13p" path="res://Sounds/stone_push_long.wav" id="7_h63xo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xau3c"]
+texture = ExtResource("4_alvn0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3cmkp"]
+texture = ExtResource("5_3cmkp")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_alvn0"]
+texture = ExtResource("6_foa8g")
 
 [node name="Looser_screen" type="Control" unique_id=1260286148]
 layout_mode = 3
@@ -16,70 +31,103 @@ script = ExtResource("1_3odii")
 loose_sound = ExtResource("2_nw14k")
 win_sound = ExtResource("3_ik48s")
 
-[node name="Panel" type="Panel" parent="." unique_id=1049658511]
+[node name="PanelStart" type="Panel" parent="." unique_id=1583208871]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xau3c")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=464293917]
+[node name="PanelLoose" type="Panel" parent="." unique_id=1474895188]
+visible = false
 layout_mode = 1
-anchors_preset = 9
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 994.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3cmkp")
+
+[node name="PanelWin" type="Panel" parent="." unique_id=1619494764]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_alvn0")
+
+[node name="Panel" type="Container" parent="." unique_id=1361482740]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control" type="Control" parent="Panel/VBoxContainer" unique_id=1900221586]
-custom_minimum_size = Vector2(100, 100)
+[node name="ResultContainer" type="VBoxContainer" parent="Panel" unique_id=464293917]
+visible = false
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer" unique_id=523234717]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/ResultContainer" unique_id=523234717]
 layout_mode = 2
 theme_override_constants/margin_left = 64
 theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer" unique_id=1900225770]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Pas mal pour un vaut rien ...
-As tu respecter le contrat ?"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1872530326]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ResultContainer" unique_id=1872530326]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer" unique_id=1107206357]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/ResultContainer/HBoxContainer" unique_id=1107206357]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/margin_left = 64
-theme_override_constants/margin_top = 64
-theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 64
+theme_override_constants/margin_top = 95
+theme_override_constants/margin_right = 503
+theme_override_constants/margin_bottom = -45
 
-[node name="EndRoundMessage" type="Label" parent="Panel/VBoxContainer/HBoxContainer/MarginContainer" unique_id=920504008]
+[node name="DeathContractInterface" parent="Panel/ResultContainer/HBoxContainer" unique_id=2067919147 instance=ExtResource("1_qdwha")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Bien jouer !"
+size_flags_horizontal = 1
 
-[node name="DeathContractInterface" parent="Panel/VBoxContainer/HBoxContainer" unique_id=2067919147 instance=ExtResource("1_qdwha")]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="MarginContainer2" type="MarginContainer" parent="Panel/VBoxContainer" unique_id=1179785438]
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/ResultContainer" unique_id=1179785438]
 layout_mode = 2
 theme_override_constants/margin_left = 200
 theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 200
+theme_override_constants/margin_right = 405
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer/MarginContainer2" unique_id=72536785]
+[node name="Button" type="Button" parent="Panel/ResultContainer/MarginContainer2" unique_id=72536785]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Continuer"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=170609800]
 
-[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer2/Button" to="." method="_on_button_pressed"]
+[node name="Timer" type="Timer" parent="." unique_id=233251579]
+wait_time = 3.5
+autostart = true
+
+[node name="Transition" type="TextureRect" parent="." unique_id=1672065119]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ik48s")
+script = ExtResource("6_b4e2f")
+transition_duration = 0.5
+mid_duration = 0.5
+transition_sfx = ExtResource("7_h63xo")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Transition" unique_id=1554134433]
+
+[connection signal="pressed" from="Panel/ResultContainer/MarginContainer2/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

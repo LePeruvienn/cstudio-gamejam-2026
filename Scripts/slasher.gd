@@ -1,6 +1,7 @@
 extends Enemy
 class_name Slasher
 
+@onready var animation_player: AnimationPlayer = $dino/AnimationPlayer
 @onready var attack_area: Area3D = $Area3D
 @onready var attack_timer: Timer = $AttackTimer
 
@@ -35,13 +36,13 @@ func handle_movement(delta: float) -> void:
 	if distance2 <= attack_range * attack_range:
 		handle_attack()
 	else:
+		play_animation("Run")
 		move_towards_player(delta)
 
 
 func handle_attack() -> void:
 	if not can_attack:
 		return
-
 	start_dash()
 
 
@@ -80,6 +81,7 @@ func handle_dash(delta: float) -> void:
 	velocity.x = dash_velocity.x
 	velocity.z = dash_velocity.z
 
+	play_animation("Charge")
 	handle_attack_collision()
 
 	if dash_timer <= 0.0:
@@ -112,3 +114,8 @@ func handle_attack_collision() -> void:
 
 func _on_attack_timer_timeout() -> void:
 	can_attack = true
+	
+func play_animation(animation_name: StringName) -> void:
+	if animation_player.current_animation == animation_name:
+		return
+	animation_player.play(animation_name)
